@@ -37,3 +37,6 @@ jobs:
           password: ${{ secrets.PRD_PASSWORD }}
           local-dir: './src/.vuepress/dist/'
           timeout: 60000
+          protocol: ftp
+          port: 21
+          security: loose
