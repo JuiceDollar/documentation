@@ -9,11 +9,11 @@ The Decentralized Euro API Telegram Bot is a communication tool designed to keep
 
 ## How to find it?
 
-Telegram Name: **@dEuro_bot**
+Telegram Name: **@JUSD_bot**
 
 <figure style="text-align: center"><img src="/assets/telegram-qr.png" alt="" width="400"><figcaption><p>Telegram QR Code</p></figcaption></figure>
 
-You can also find the bot by clicking here: [https://t.me/dEuro_bot](https://t.me/dEuro_bot)
+You can also find the bot by clicking here: [https://t.me/JUSD_bot](https://t.me/JuiceSwap)
 
 
 ## Basic Messages

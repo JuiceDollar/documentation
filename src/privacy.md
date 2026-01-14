@@ -2,7 +2,7 @@
 
 Dear Sir or Madam,  
 
-The dEURO Association takes the protection of your personal data very seriously. We attach great importance to data protection.  
+The JUSD Association takes the protection of your personal data very seriously. We attach great importance to data protection.  
 
 The confidential and responsible handling of personal data from our relationships with customers, business partners, employees, applicants, and suppliers is the foundation of our mission. Personal data refers to all information relating to an identified or identifiable person.  
 We therefore adhere to the following principles when handling personal data:  
@@ -16,14 +16,14 @@ In case of discrepancies, the English version of this policy will prevail unless
 
 The responsible body for data processing is:  
 
-**dEURO Association**  
+**JUSD Association**  
 Address: Bahnhofstraße 7, Zug, Switzerland  
 Website: https://deuro.com/  
 Electronic contact via email: info@deuro.com  
 
 ## 2. General Information on Data Protection
 
-The dEURO Association treats your personal data confidentially and in accordance with applicable data protection regulations and this privacy policy. We process personal data of contractual partners in direct connection with the conclusion or execution of a contract (justification).  
+The JUSD Association treats your personal data confidentially and in accordance with applicable data protection regulations and this privacy policy. We process personal data of contractual partners in direct connection with the conclusion or execution of a contract (justification).  
 
 The use of our website is generally possible without providing personal data. However, if a data subject wishes to make use of specific services via our website, it may be necessary to process personal data. If the processing of personal data is required and there is no legal basis for such processing, we will obtain the consent of the data subject in a suitable form after providing appropriate information.  
 
@@ -33,7 +33,7 @@ As the individual concerned, it is in your personal interest to protect the syst
 
 ### What do we use your data for?
 
-Some of the data is collected to ensure that the website and dEURO Association services are provided without errors. In principle, no additional data is collected to analyze user behavior.  
+Some of the data is collected to ensure that the website and JUSD Association services are provided without errors. In principle, no additional data is collected to analyze user behavior.  
 
 ### What rights do you have regarding your data?
 
@@ -68,7 +68,7 @@ For security reasons and to protect the transmission of confidential content, su
 ### Rights of Data Subjects
 
 As a user whose personal data is processed under this Privacy Policy, you have the following rights:  
-- Right to information about whether and in what form the dEURO Association stores personal data (e.g., categories of data, recipients or categories of recipients, retention periods, or criteria for retention).  
+- Right to information about whether and in what form the JUSD Association stores personal data (e.g., categories of data, recipients or categories of recipients, retention periods, or criteria for retention).  
 - Right to rectification or correction of inaccurate or incomplete personal data.  
 - Right to erasure of personal data, provided that the legal requirements are met.  
 - Right to restriction of the processing of personal data, provided that the legal requirements are met.  
@@ -85,7 +85,7 @@ We hereby object to the use of contact data published as part of our obligation 
 
 ### Cookies
 
-The dEURO Association uses cookies exclusively to maintain the operation of the IT systems and their functionality. No cookies are used for tracking user behavior or similar purposes.
+The JUSD Association uses cookies exclusively to maintain the operation of the IT systems and their functionality. No cookies are used for tracking user behavior or similar purposes.
 
 ### Inquiry by Email, Telephone, or Fax
 
@@ -95,7 +95,7 @@ The data you send to us via contact requests will remain with us until you ask u
 
 ## 6. Analysis Tools and Advertising
 
-The dEURO Association does not use website analysis tools such as Google Analytics, Adobe Analytics, or others.
+The JUSD Association does not use website analysis tools such as Google Analytics, Adobe Analytics, or others.
 
 ## 7. Newsletter and Social Media
 
@@ -157,38 +157,38 @@ If you apply for a job advertised by us, these data protection provisions apply 
 
 The application is made exclusively via LinkedIn. If you apply for a vacancy via LinkedIn, please note that LinkedIn may store your personal data and may collect further data in relation to the progress of your application. Any use of your data by LinkedIn will be in accordance with LinkedIn’s privacy policy. LinkedIn undertakes to maintain high standards of data protection and data security.  
 
-If the person responsible for processing concludes an employment contract with an applicant, the data transmitted will be stored at the dEURO Association for the purpose of processing the employment relationship in compliance with statutory provisions and to ensure protection from unauthorized access.  
+If the person responsible for processing concludes an employment contract with an applicant, the data transmitted will be stored at the JUSD Association for the purpose of processing the employment relationship in compliance with statutory provisions and to ensure protection from unauthorized access.  
 
 If no employment contract is concluded, the application documents will be deleted automatically and without further notification 12 months after notification of the rejection decision, provided that no other legitimate interests of the data processing controller prevent deletion. Legitimate interests can include, for example, obligations to provide evidence in legal proceedings.
 
 ## 9. Applicable Law and Place of Jurisdiction
 
-The dEURO Association website is governed by the applicable laws of the jurisdiction in which it operates, unless other mandatory laws (e.g., the EU General Data Protection Regulation, GDPR) apply to the natural person concerned.  
+The JUSD Association website is governed by the applicable laws of the jurisdiction in which it operates, unless other mandatory laws (e.g., the EU General Data Protection Regulation, GDPR) apply to the natural person concerned.  
 
-The place of jurisdiction for any disputes arising from the operation of or visit to the website shall be determined by the applicable laws of the jurisdiction in which the dEURO Association is based, unless another mandatory place of jurisdiction applies to the natural person concerned.
+The place of jurisdiction for any disputes arising from the operation of or visit to the website shall be determined by the applicable laws of the jurisdiction in which the JUSD Association is based, unless another mandatory place of jurisdiction applies to the natural person concerned.
 
 ## 10. Changes to the Privacy Policy
 
-The dEURO Association regularly reviews this Privacy Policy to ensure it remains up to date and reserves the right to amend it as necessary. It is recommended that you check this page regularly for possible changes, as no individual notification of changes will be made.  
+The JUSD Association regularly reviews this Privacy Policy to ensure it remains up to date and reserves the right to amend it as necessary. It is recommended that you check this page regularly for possible changes, as no individual notification of changes will be made.  
 
 In the event of discrepancies with other language versions, the English version of this Privacy Policy shall prevail unless otherwise required by applicable law.
 
 ## 11. Legal Information and Disclaimer
 
-The dEURO Association accepts no liability for the accuracy and completeness of the content of the information provided.  
+The JUSD Association accepts no liability for the accuracy and completeness of the content of the information provided.  
 
 Liability claims relating to material or immaterial damage caused by the use or non-use of the information provided or by the use of incorrect or incomplete information are fundamentally excluded.  
 
-All offers published by the dEURO Association in digital or electronic form are subject to change. The dEURO Association expressly reserves the right to change, supplement, or delete parts of the pages or the entire offer without prior notice or to cease publication temporarily or permanently.
+All offers published by the JUSD Association in digital or electronic form are subject to change. The JUSD Association expressly reserves the right to change, supplement, or delete parts of the pages or the entire offer without prior notice or to cease publication temporarily or permanently.
 
 ## 12. Liability for Links
 
-The dEURO Association is not responsible for references and links to third-party websites. Any responsibility for websites of third parties is rejected. Access to and use of such websites is at the user’s own risk.
+The JUSD Association is not responsible for references and links to third-party websites. Any responsibility for websites of third parties is rejected. Access to and use of such websites is at the user’s own risk.
 
 ## 13. Copyrights and Intellectual Property
 
-The copyright and all other rights to the content, images, photos, or other files on the dEURO Association website belong exclusively to the dEURO Association, its affiliated entities, suppliers, or the specifically named rights holders.
+The copyright and all other rights to the content, images, photos, or other files on the JUSD Association website belong exclusively to the JUSD Association, its affiliated entities, suppliers, or the specifically named rights holders.
 
 ## 14. Consent to the Privacy Policy
 
-The customer accepts the content of this Privacy Policy in its current version in full. In the event of contradictions, the Privacy Policy takes precedence over any General Terms and Conditions of the dEURO Association.
+The customer accepts the content of this Privacy Policy in its current version in full. In the event of contradictions, the Privacy Policy takes precedence over any General Terms and Conditions of the JUSD Association.
