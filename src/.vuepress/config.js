@@ -1,12 +1,12 @@
 const { description } = require("../../package");
 
 module.exports = {
-  title: "dEURO",
+  title: "JUSD",
   description: description,
 
   head: [
     ["link", { rel: "icon", href: "/assets/favicon.png" }],
-    ["meta", { name: "theme-color", content: "#092f62" }],
+    ["meta", { name: "theme-color", content: "#F57F00" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
     [ "script", { type: "text/javascript", src: "https://cdn.weglot.com/weglot.min.js" }, ],
@@ -21,8 +21,8 @@ module.exports = {
   ],
 
   themeConfig: {
-    repo: "d-EURO/documentation",
-    logo: "/assets/logo.png",
+    repo: "JuiceDollar/documentation",
+    logo: "/assets/logo.svg",
     editLinks: true,
     editLinkText: "Edit this page on Github",
     docsBranch: "develop",
@@ -31,8 +31,8 @@ module.exports = {
 
     nav: [
       {
-        text: "dEuro.com",
-        link: "https://dEuro.com/",
+        text: "JuiceDollar",
+        link: "https://juicedollar.com/",
       },
     ],
 

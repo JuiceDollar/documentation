@@ -1,27 +1,34 @@
-/**
- * Custom Styles here.
- *
- * ref：https://v1.vuepress.vuejs.org/config/#index-styl
- */
-
 .navbar {
-  background-color: #092f62;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ebf0;
 
   .nav-links {
-    color: white;
+    color: #272b37;
+
+    a {
+      color: #272b37;
+
+      &:hover {
+        color: #F57F00;
+      }
+    }
 
     a.router-link-active {
-      color: white;
+      color: #F57F00;
     }
   }
 
   .home-link {
     .site-name {
-      color: white;
+      display: none;
     }
   }
 
   .links {
     background-color: transparent !important;
   }
+}
+
+body {
+  font-family: "Avenir", "Helvetica", ui-sans-serif, sans-serif;
 }
