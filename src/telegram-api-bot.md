@@ -1,11 +1,11 @@
 # Telegram API Bot
 
-The Decentralized Euro API Telegram Bot is a communication tool designed to keep users informed about various activities and updates within the Decentralized Euro ecosystem.
+The JuiceDollar API Telegram Bot is a communication tool designed to keep users informed about various activities and updates within the JuiceDollar ecosystem.
 
 * Welcome and Help Functions: The bot welcomes new users or groups and provides help information on demand.
 * Basic Messages: The bot will inform any user or group about basic updates.
 * Subscription Management: Users can subscribe to different types of updates using specific handles like /MintingUpdates.
-* Quick Access: The bot provides direct links to the Decentralized Euro app, blockchain explorer for relevant addresses and transactions, and the GitHub repository.
+* Quick Access: The bot provides direct links to the JuiceDollar app, blockchain explorer for relevant addresses and transactions, and the GitHub repository.
 
 ## How to find it?
 
