@@ -47,8 +47,13 @@ module.exports = {
           "/positions/clone",
           "/positions/adjust",
           "/positions/auctions",
+          "/positions/roller",
         ],
       },
+
+      { title: "Savings & Interest", path: "/savings" },
+
+      { title: "Frontend Rewards", path: "/frontend-rewards" },
 
       { title: "Reserve", path: "/reserve",
         children: [
