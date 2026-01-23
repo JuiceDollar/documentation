@@ -410,3 +410,16 @@ All smart contract source code is available on GitHub:
 **Network:** Citrea Testnet (Chain ID: 5115)
 
 **Explorer:** [explorer.testnet.citrea.xyz](https://explorer.testnet.citrea.xyz)
+
+---
+
+## Complete Function Reference
+
+For a comprehensive listing of every public function across all contracts, including full signatures, parameters, return values, and access control modifiers, see the **[Smart Contract Functions Reference](/smart-contracts/functions.md)**.
+
+The function reference includes:
+- **204 total functions** across all contracts
+- **106 view/pure functions** for reading state
+- **98 state-changing functions** for transactions
+- Complete parameter documentation
+- Event definitions for each contract
