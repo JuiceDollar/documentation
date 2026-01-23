@@ -56,7 +56,7 @@ The equity token representing shares in the JuiceDollar reserve pool. Holding JU
 **Key Features:**
 - ERC-20 token with time-weighted voting power
 - 2% quorum required for governance veto
-- Price determined by proportional capital valuation (5x equity)
+- Price determined by proportional capital valuation (10x equity)
 - 2% fee on minting and redemption
 - Flash loan protection (same-block redemption blocked)
 
@@ -134,7 +134,7 @@ The central hub for creating, cloning, and challenging collateralized JuiceDolla
 | **Opening Fee** | 1,000 JUSD |
 | **Challenger Reward** | 2% |
 | **Min Challenge Period** | 1 day |
-| **Min Init Period** | 14 days |
+| **Min Position Init Period** | 3 days |
 
 ---
 

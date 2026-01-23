@@ -18,35 +18,32 @@ You can also find the bot by clicking here: [https://t.me/JUSD_bot](https://t.me
 
 ## Basic Messages
 
-#### Welcome and Environment Information
+### Welcome and Environment Information
 
 The bot welcomes new users or groups and provides help information on demand. It shares details about the current API version, blockchain network, and timestamp of messages.
 
 
-#### Minter Proposals
+### Minter Proposals
 
 The bot announces new minter proposals, including application periods and relevant transaction details.
 
-
-#### Minter Proposals Vetoed
+### Minter Proposals Vetoed
 
 The bot notifies if a mint proposal got vetoed through the governance process.
 
-
-#### Position Proposals
+### Position Proposals
 
 The bot notifies users about new position proposals, including details such as minting limits, interest rates, and collateral information.
 
-
-#### Challenges Started
+### Challenges Started
 
 It informs users when new challenges are started, providing information about the challenger, challenge size, and auction details.
 
-## Subscription Handels
+## Subscription Handles
 
-Use the command `/help` to get your subsctiption state. Use and handle to subscribe or unsubscribe, its a toggle function.
+Use the command `/help` to get your subscription state. Use a handle to subscribe or unsubscribe - it's a toggle function.
 
 
-#### Minting Updates
+### Minting Updates
 
 It provides updates on minting activities, including changes in minted amounts, collateral ratios, and fee information.
