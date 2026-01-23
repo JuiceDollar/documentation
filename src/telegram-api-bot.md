@@ -13,7 +13,7 @@ Telegram Name: **@JUSD_bot**
 
 <figure style="text-align: center"><img src="/assets/telegram-qr.png" alt="" width="400"><figcaption><p>Telegram QR Code</p></figcaption></figure>
 
-You can also find the bot by clicking here: [https://t.me/JUSD_bot](https://t.me/JuiceSwap)
+You can also find the bot by clicking here: [https://t.me/JUSD_bot](https://t.me/JUSD_bot)
 
 
 ## Basic Messages
