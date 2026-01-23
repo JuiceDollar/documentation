@@ -16,10 +16,10 @@ In case of discrepancies, the English version of this policy will prevail unless
 
 The responsible body for data processing is:  
 
-**JUSD Association**  
-Address: Bahnhofstraße 7, Zug, Switzerland  
-Website: https://deuro.com/  
-Electronic contact via email: info@deuro.com  
+**JUSD Association**
+Address: Bahnhofstraße 7, Zug, Switzerland
+Website: https://juicedollar.com/
+Electronic contact via email: info@juicedollar.com  
 
 ## 2. General Information on Data Protection
 
@@ -39,7 +39,7 @@ Some of the data is collected to ensure that the website and JUSD Association se
 
 You have the right to receive information about the origin, recipient, and purpose of your stored personal data free of charge at any time. You also have the right to request the correction or deletion of this data. If you have given your consent to data processing, you can revoke this consent at any time for the future. You also have the right to request the restriction of the processing of your personal data under certain circumstances. Furthermore, you have the right to lodge a complaint with the competent supervisory authority.  
 
-You can contact our support team at info@deuro.com at any time with regard to this and other questions on the subject of data protection.
+You can contact our support team at info@juicedollar.com at any time with regard to this and other questions on the subject of data protection.
 
 ## 3. Hosting
 
@@ -127,7 +127,7 @@ We have no influence on the storage period of your data that is stored by the op
 
 ##### X
 
-We have a [profile at X](https://x.com/dEURO_com). The provider is Twitter International Company, One Cumberland Place, Fenian Street, Dublin 2, D02 AX07, Ireland.  
+We have a [profile at X](https://x.com/JuiceDollar). The provider is Twitter International Company, One Cumberland Place, Fenian Street, Dublin 2, D02 AX07, Ireland.  
 
 We would like to point out that, as the operator of these pages, we have no influence on the processing of the transmitted data by X and are not informed about its exact content or use.  
 
@@ -139,7 +139,7 @@ Details can be found in the [Privacy Policy of X](https://x.com/en/privacy).
 
 ##### LinkedIn
 
-We have a [profile on LinkedIn](https://www.linkedin.com/company/deuro-com/). The provider is LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2, Ireland. LinkedIn uses advertising cookies.  
+We have a [profile on LinkedIn](https://www.linkedin.com/company/juicedollar/). The provider is LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2, Ireland. LinkedIn uses advertising cookies.  
 
 We would like to point out that, as the operator of these pages, we have no influence on the processing of the transmitted data by LinkedIn and are not informed about its exact content or use.  
 

@@ -47,8 +47,13 @@ module.exports = {
           "/positions/clone",
           "/positions/adjust",
           "/positions/auctions",
+          "/positions/roller",
         ],
       },
+
+      { title: "Savings & Interest", path: "/savings" },
+
+      { title: "Frontend Rewards", path: "/frontend-rewards" },
 
       { title: "Reserve", path: "/reserve",
         children: [
@@ -58,6 +63,11 @@ module.exports = {
 
       { title: "Governance", path: "/governance" },
 
+      { title: "Smart Contracts", path: "/smart-contracts",
+        children: [
+          "/smart-contracts/functions",
+        ],
+      },
 
       { title: "Telegram API Bot", path: "/telegram-api-bot" },
       { title:  "Disclaimer", path: "/disclaimer" },
