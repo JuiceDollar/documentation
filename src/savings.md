@@ -180,7 +180,7 @@ After 30 days ≈ 32.96 JUSD (slightly more due to compound effect)
 | **Risk** | Low - principal preserved | Higher - value fluctuates |
 | **Return** | Fixed Leadrate | Variable (fees + liquidations) |
 | **Governance** | None | Voting power |
-| **Lockup** | None | 90-day minimum hold for redemption |
+| **Lockup** | None | None (same-block protection only) |
 | **Best for** | Stable yield seekers | Active participants |
 
 ## Important Notes

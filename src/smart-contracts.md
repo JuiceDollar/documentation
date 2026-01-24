@@ -134,7 +134,7 @@ The central hub for creating, cloning, and challenging collateralized JuiceDolla
 | **Opening Fee** | 1,000 JUSD |
 | **Challenger Reward** | 2% |
 | **Min Challenge Period** | 1 day |
-| **Min Position Init Period** | 3 days |
+| **Min Position Init Period** | 14 days |
 
 ---
 
