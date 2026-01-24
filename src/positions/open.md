@@ -10,7 +10,7 @@ On the next page are four boxes. Let's take a look at the box in the top left.
 
 <figure style="text-align: center"><img src="/assets/proposal-process.png" alt=""><figcaption><p>Proposal process</p></figcaption></figure>
 
-The proposal fee is fixed at 1,000 JUSD. This fee is not returned if the position is denied and goes to the equity holders. The price tag of 1,000 JUSD ensures that each proposal is well thought-out. Having a low fee would likely encourage the proposal of illiquid and/or otherwise unfit tokens. The initialization period has to be at least 3 days. This gives other system participants enough time to veto or to challenge the new position. A veto can only be cast by qualified pool share holders by calling the "deny" method on the position. If a position is denied, it cannot ever be used to mint JuiceDollar, but it can still be challenged. New positions can be challenged immediately using the normal challenge mechanism.
+The proposal fee is fixed at 1,000 JUSD. This fee is not returned if the position is denied and goes to the equity holders. The price tag of 1,000 JUSD ensures that each proposal is well thought-out. Having a low fee would likely encourage the proposal of illiquid and/or otherwise unfit tokens. The initialization period has to be at least 14 days. This gives other system participants enough time to veto or to challenge the new position. A veto can only be cast by qualified pool share holders by calling the "deny" method on the position. If a position is denied, it cannot ever be used to mint JuiceDollar, but it can still be challenged. New positions can be challenged immediately using the normal challenge mechanism.
 
 Next, we can inspect the box on the bottom left.
 
