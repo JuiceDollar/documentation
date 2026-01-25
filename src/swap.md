@@ -210,7 +210,7 @@ StartUSD serves as the genesis stablecoin to:
 
 | Property | Value |
 |----------|-------|
-| Contract | [`0x25F8599Be1D25501212b20bD72DF1caA97b496b1`](https://explorer.testnet.citrea.xyz/address/0x25F8599Be1D25501212b20bD72DF1caA97b496b1) |
+| Contract | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://explorer.testnet.citrea.xyz/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 | Source Token | StartUSD |
 | Limit | Configured at deployment |
 | Horizon | Configured at deployment |
@@ -288,6 +288,6 @@ event EmergencyStopped(address indexed caller, string message)
 
 | Bridge | Source | Address | Status |
 |--------|--------|---------|--------|
-| StartUSD | SUSD | [`0x25F8...6b1`](https://explorer.testnet.citrea.xyz/address/0x25F8599Be1D25501212b20bD72DF1caA97b496b1) | Active |
+| StartUSD | SUSD | [`0x8398...590`](https://explorer.testnet.citrea.xyz/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) | Active |
 
 *Additional bridges may be added through governance.*

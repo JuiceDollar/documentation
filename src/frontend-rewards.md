@@ -56,7 +56,7 @@ Call the registration function:
 function registerFrontendCode(bytes32 frontendCode) external returns (bool)
 ```
 
-**Contract:** [`FrontendGateway`](https://explorer.testnet.citrea.xyz/address/0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe)
+**Contract:** [`FrontendGateway`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0)
 
 ### Step 3: Integrate Into Your Frontend
 
@@ -174,9 +174,9 @@ function executeChanges() external
 import { ethers } from 'ethers';
 
 const FRONTEND_CODE = ethers.utils.formatBytes32String("myapp");
-const FRONTEND_GATEWAY = "0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe";
-const SAVINGS_GATEWAY = "0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca";
-const MINTING_HUB_GATEWAY = "0x372368ca530B4d55622c24E28F0347e26caDc64A";
+const FRONTEND_GATEWAY = "0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0";
+const SAVINGS_GATEWAY = "0x54430781b33581CE2b0DBD837CA66113BeEEFD8e";
+const MINTING_HUB_GATEWAY = "0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8";
 
 // Investment with rewards
 async function investWithRewards(amount, expectedShares) {
@@ -214,9 +214,9 @@ This enables:
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| FrontendGateway | [`0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe`](https://explorer.testnet.citrea.xyz/address/0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe) | Core reward tracking |
-| MintingHubGateway | [`0x372368ca530B4d55622c24E28F0347e26caDc64A`](https://explorer.testnet.citrea.xyz/address/0x372368ca530B4d55622c24E28F0347e26caDc64A) | Position rewards |
-| SavingsGateway | [`0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca`](https://explorer.testnet.citrea.xyz/address/0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca) | Savings rewards |
+| FrontendGateway | [`0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Core reward tracking |
+| MintingHubGateway | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://explorer.testnet.citrea.xyz/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) | Position rewards |
+| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings rewards |
 
 ## Events
 
