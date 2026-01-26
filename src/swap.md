@@ -208,9 +208,13 @@ StartUSD serves as the genesis stablecoin to:
 
 ### Bridge Details
 
+| Network | Address |
+|---------|---------|
+| **Mainnet** | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://explorer.mainnet.citrea.xyz/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
+| **Testnet** | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://explorer.testnet.citrea.xyz/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
+
 | Property | Value |
 |----------|-------|
-| Contract | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://explorer.testnet.citrea.xyz/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 | Source Token | StartUSD |
 | Limit | Configured at deployment |
 | Horizon | Configured at deployment |
@@ -285,6 +289,17 @@ event EmergencyStopped(address indexed caller, string message)
 ```
 
 ## Current Bridges
+
+### Mainnet (Chain ID: 4114)
+
+| Bridge | Source | Address | Status |
+|--------|--------|---------|--------|
+| StartUSD | SUSD | [`0x51ff...4dD`](https://explorer.mainnet.citrea.xyz/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) | Active |
+| USDC | USDC | [`0x920D...20F`](https://explorer.mainnet.citrea.xyz/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) | Active |
+| USDT | USDT | [`0x5CC0...614`](https://explorer.mainnet.citrea.xyz/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) | Active |
+| CTUSD | CTUSD | [`0x8D11...0bd`](https://explorer.mainnet.citrea.xyz/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) | Active |
+
+### Testnet (Chain ID: 5115)
 
 | Bridge | Source | Address | Status |
 |--------|--------|---------|--------|
