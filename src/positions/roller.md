@@ -243,7 +243,7 @@ Common errors when rolling:
 
 | Contract | Address |
 |----------|---------|
-| PositionRoller | [`0x09d24251654e5B89d5fcd35d087f0CB4163471aC`](https://explorer.testnet.citrea.xyz/address/0x09d24251654e5B89d5fcd35d087f0CB4163471aC) |
+| PositionRoller | [`0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC`](https://explorer.testnet.citrea.xyz/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) |
 
 ## Events
 
