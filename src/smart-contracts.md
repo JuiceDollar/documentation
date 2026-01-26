@@ -41,7 +41,7 @@ The main stablecoin token contract - an ERC-20 token designed to track the value
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0xFdB0a83d94CD65151148a131167Eb499Cb85d015`](https://explorer.testnet.citrea.xyz/address/0xFdB0a83d94CD65151148a131167Eb499Cb85d015) |
+| **Address** | [`0x6a850a548fdd050e8961223ec8FfCDfacEa57E39`](https://explorer.testnet.citrea.xyz/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) |
 | **Symbol** | JUSD |
 | **Decimals** | 18 |
 | **Min Application Period** | 14 days |
@@ -74,7 +74,7 @@ The equity token representing shares in the JuiceDollar reserve pool. Holding JU
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x7b2A560bf72B0Dd2EAbE3271F829C2597c8420d5`](https://explorer.testnet.citrea.xyz/address/0x7b2A560bf72B0Dd2EAbE3271F829C2597c8420d5) |
+| **Address** | [`0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E`](https://explorer.testnet.citrea.xyz/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) |
 | **Symbol** | JUICE |
 | **Decimals** | 18 |
 | **Valuation Factor** | 10x (market cap = 10 * equity) |
@@ -130,7 +130,7 @@ The central hub for creating, cloning, and challenging collateralized JuiceDolla
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x372368ca530B4d55622c24E28F0347e26caDc64A`](https://explorer.testnet.citrea.xyz/address/0x372368ca530B4d55622c24E28F0347e26caDc64A) |
+| **Address** | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://explorer.testnet.citrea.xyz/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
 | **Opening Fee** | 1,000 JUSD |
 | **Challenger Reward** | 2% |
 | **Min Challenge Period** | 1 day |
@@ -184,7 +184,7 @@ Factory contract for deploying new Position contracts using the ERC-1167 minimal
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0xB22a0701237a226d17aE0C4FE8263Edf5Be5f20d`](https://explorer.testnet.citrea.xyz/address/0xB22a0701237a226d17aE0C4FE8263Edf5Be5f20d) |
+| **Address** | [`0x2990c3219ED2763685D4420f5513feEa8991a7ee`](https://explorer.testnet.citrea.xyz/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) |
 | **Pattern** | ERC-1167 Minimal Proxy |
 
 ---
@@ -206,7 +206,7 @@ Helper contract for rolling over debt from one position to another using flash l
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x09d24251654e5B89d5fcd35d087f0CB4163471aC`](https://explorer.testnet.citrea.xyz/address/0x09d24251654e5B89d5fcd35d087f0CB4163471aC) |
+| **Address** | [`0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC`](https://explorer.testnet.citrea.xyz/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) |
 
 ---
 
@@ -248,7 +248,7 @@ ERC-4626 compatible vault adapter for the Savings module.
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x9580498224551E3f2e3A04330a684BF025111C53`](https://explorer.testnet.citrea.xyz/address/0x9580498224551E3f2e3A04330a684BF025111C53) |
+| **Address** | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://explorer.testnet.citrea.xyz/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) |
 | **Symbol** | svJUSD |
 | **Standard** | ERC-4626 |
 
@@ -273,7 +273,7 @@ Enables 1:1 conversion between trusted external stablecoins and JUSD.
 
 | Property | Value |
 |----------|-------|
-| **StartUSD Bridge** | [`0x25F8599Be1D25501212b20bD72DF1caA97b496b1`](https://explorer.testnet.citrea.xyz/address/0x25F8599Be1D25501212b20bD72DF1caA97b496b1) |
+| **StartUSD Bridge** | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://explorer.testnet.citrea.xyz/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 | **Emergency Quorum** | 10% |
 
 ---
@@ -290,7 +290,7 @@ Genesis stablecoin used to bootstrap the JuiceDollar protocol.
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0xDFa3153E1eDa84F966BD01bc4C6D9A4FF36AcAeA`](https://explorer.testnet.citrea.xyz/address/0xDFa3153E1eDa84F966BD01bc4C6D9A4FF36AcAeA) |
+| **Address** | [`0x8398Da4c32eaE51B9840DA230095BB29F4179590`](https://explorer.testnet.citrea.xyz/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) |
 | **Symbol** | SUSD |
 | **Total Supply** | 100,000,000 |
 
@@ -324,7 +324,7 @@ Manages frontend referral codes and distributes rewards to frontend operators.
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe`](https://explorer.testnet.citrea.xyz/address/0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe) |
+| **Address** | [`0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) |
 
 ---
 
@@ -344,7 +344,7 @@ Extended MintingHub with frontend reward integration.
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0x372368ca530B4d55622c24E28F0347e26caDc64A`](https://explorer.testnet.citrea.xyz/address/0x372368ca530B4d55622c24E28F0347e26caDc64A) |
+| **Address** | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://explorer.testnet.citrea.xyz/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
 
 ---
 
@@ -364,7 +364,7 @@ Extended Savings module with frontend reward integration.
 
 | Property | Value |
 |----------|-------|
-| **Address** | [`0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca`](https://explorer.testnet.citrea.xyz/address/0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca) |
+| **Address** | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) |
 
 ---
 
@@ -372,16 +372,16 @@ Extended Savings module with frontend reward integration.
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| JuiceDollar | [`0xFdB0...d015`](https://explorer.testnet.citrea.xyz/address/0xFdB0a83d94CD65151148a131167Eb499Cb85d015) | Main stablecoin token |
-| Equity | [`0x7b2A...0d5`](https://explorer.testnet.citrea.xyz/address/0x7b2A560bf72B0Dd2EAbE3271F829C2597c8420d5) | Reserve pool shares (JUICE) |
-| MintingHubGateway | [`0x3723...64A`](https://explorer.testnet.citrea.xyz/address/0x372368ca530B4d55622c24E28F0347e26caDc64A) | Position management hub |
-| PositionFactory | [`0xB22a...20d`](https://explorer.testnet.citrea.xyz/address/0xB22a0701237a226d17aE0C4FE8263Edf5Be5f20d) | Position deployment factory |
-| PositionRoller | [`0x09d2...1aC`](https://explorer.testnet.citrea.xyz/address/0x09d24251654e5B89d5fcd35d087f0CB4163471aC) | Position rollover helper |
-| SavingsGateway | [`0xbfE4...dCa`](https://explorer.testnet.citrea.xyz/address/0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca) | Savings with frontend rewards |
-| SavingsVaultJUSD | [`0x9580...C53`](https://explorer.testnet.citrea.xyz/address/0x9580498224551E3f2e3A04330a684BF025111C53) | ERC-4626 savings vault |
-| FrontendGateway | [`0x3EB3...DFe`](https://explorer.testnet.citrea.xyz/address/0x3EB394f950abf90aC78127C0f4c78545E0eD3DFe) | Frontend reward system |
-| StartUSD Bridge | [`0x25F8...6b1`](https://explorer.testnet.citrea.xyz/address/0x25F8599Be1D25501212b20bD72DF1caA97b496b1) | Bootstrap stablecoin bridge |
-| StartUSD | [`0xDFa3...AeA`](https://explorer.testnet.citrea.xyz/address/0xDFa3153E1eDa84F966BD01bc4C6D9A4FF36AcAeA) | Genesis stablecoin |
+| JuiceDollar | [`0x6a85...7E39`](https://explorer.testnet.citrea.xyz/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) | Main stablecoin token |
+| Equity | [`0x7fa1...D5E`](https://explorer.testnet.citrea.xyz/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) | Reserve pool shares (JUICE) |
+| MintingHubGateway | [`0x5fC6...0F8`](https://explorer.testnet.citrea.xyz/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) | Position management hub |
+| PositionFactory | [`0x2990...7ee`](https://explorer.testnet.citrea.xyz/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) | Position deployment factory |
+| PositionRoller | [`0x8A50...caC`](https://explorer.testnet.citrea.xyz/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) | Position rollover helper |
+| SavingsGateway | [`0x5443...D8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings with frontend rewards |
+| SavingsVaultJUSD | [`0x802a...c7B`](https://explorer.testnet.citrea.xyz/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 savings vault |
+| FrontendGateway | [`0xd824...5D0`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Frontend reward system |
+| StartUSD Bridge | [`0x9ba2...13d`](https://explorer.testnet.citrea.xyz/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Bootstrap stablecoin bridge |
+| StartUSD | [`0x8398...590`](https://explorer.testnet.citrea.xyz/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) | Genesis stablecoin |
 
 ---
 
