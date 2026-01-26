@@ -152,8 +152,8 @@ The vault uses OpenZeppelin's virtual shares pattern to prevent "inflation attac
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| SavingsGateway | [`0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca`](https://explorer.testnet.citrea.xyz/address/0xbfE44EE0471D0cF4759B97A458240f26c2D340Ca) | Main savings with frontend rewards |
-| SavingsVaultJUSD | [`0x9580498224551E3f2e3A04330a684BF025111C53`](https://explorer.testnet.citrea.xyz/address/0x9580498224551E3f2e3A04330a684BF025111C53) | ERC-4626 vault adapter |
+| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Main savings with frontend rewards |
+| SavingsVaultJUSD | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://explorer.testnet.citrea.xyz/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 vault adapter |
 
 ## Interest Calculation Example
 
