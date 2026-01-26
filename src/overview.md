@@ -27,7 +27,14 @@ JuiceDollar is a direct technological manifestation of Timothy C. May's vision o
 
 ## JuiceDollar (JUSD) and JuiceDollar Pool Shares (JUICE)
 
-The JuiceDollar system comes with two ERC-20 tokens, a stablecoin called [JuiceDollar (JUSD)](https://explorer.testnet.citrea.xyz/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) and a governance token called [JuiceDollar Pool Shares (JUICE)](https://explorer.testnet.citrea.xyz/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E). Unlike other collateralized stablecoins, JuiceDollar does not depend on external oracles, making it less susceptible to certain attacks and also more versatile with regards to the used collateral. The disadvantage of that approach is its speed, performing liquidations over the course of days whereas oracle-based systems might react within minutes.
+The JuiceDollar system comes with two ERC-20 tokens, a stablecoin called JuiceDollar (JUSD) and a governance token called JuiceDollar Pool Shares (JUICE).
+
+| Token | Mainnet | Testnet |
+|-------|---------|---------|
+| **JUSD** | [`0x0987...35C`](https://explorer.mainnet.citrea.xyz/address/0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C) | [`0x6a85...E39`](https://explorer.testnet.citrea.xyz/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) |
+| **JUICE** | [`0x2A36...ae4`](https://explorer.mainnet.citrea.xyz/address/0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4) | [`0x7fa1...D5E`](https://explorer.testnet.citrea.xyz/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) |
+
+Unlike other collateralized stablecoins, JuiceDollar does not depend on external oracles, making it less susceptible to certain attacks and also more versatile with regards to the used collateral. The disadvantage of that approach is its speed, performing liquidations over the course of days whereas oracle-based systems might react within minutes.
 
 JuiceDollar is a collateralized stablecoin that tracks the value of the US Dollar. There is no hard peg to the Dollar, but a set of economic constraints that incentivizes the market to softly push it towards parity from two sides. Most importantly, the system is [over-collateralized](positions/): for each JuiceDollar in circulation, there must be other tokens worth at least one JuiceDollar backing it. Furthermore, JUICE holders have a number of ways to influence the long term price of JuiceDollar by making it more or less expensive to mint JUSD, similarly to how a central bank keeps the exchange rate of its own currency in balance. The underlying assumption here is that the JUICE holders recognize that the system (and therefore also their tokens) is the most valuable when JuiceDollar tracks the Dollar as reliably as possible, and that they use their power to govern the system accordingly.
 
