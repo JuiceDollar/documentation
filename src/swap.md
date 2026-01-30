@@ -189,12 +189,55 @@ Watch the balance changes to understand market dynamics:
 
 The initial bootstrap bridge uses StartUSD, a simple ERC-20 token created specifically for JuiceDollar initialization.
 
+### Important: Bootstrap Phase Transparency
+
+::: warning BOOTSTRAP PHASE
+**StartUSD (SUSD) has no intrinsic value.** It is a simple ERC-20 token that mints its entire supply to the deployer. During the bootstrap phase, JUSD minted via the StartUSD bridge is technically **not backed by real assets**.
+
+This is a deliberate design choice with built-in safeguards explained below.
+:::
+
 ### Purpose
 
-StartUSD serves as the genesis stablecoin to:
-1. Create initial JUSD supply
-2. Enable first JUICE minting
-3. Bootstrap the system before connecting to established stablecoins
+StartUSD serves as the genesis mechanism to:
+1. Create initial JUSD supply for system testing
+2. Enable first JUICE minting and governance setup
+3. Bootstrap the system in a controlled environment before connecting to established stablecoins
+
+### The 6-Week Bootstrap Window
+
+The StartUSD bridge has a **strict 6-week horizon**. This time-limited window is a critical security feature:
+
+| Phase | Duration | What Happens |
+|-------|----------|--------------|
+| **Bootstrap Phase** | Weeks 1-6 | SUSD can be bridged to JUSD, system is initializing |
+| **Post-Bootstrap** | After Week 6 | SUSD bridge expires, no new SUSD can enter the system |
+
+**After the 6-week horizon:**
+- No new StartUSD can be minted into JUSD
+- The deployer's ability to add unbacked JUSD is permanently removed
+- Only bridges to real, audited stablecoins (USDC, USDT, etc.) remain active
+- The system transitions to being fully backed by real assets
+
+### Why This Design?
+
+The 6-week bootstrap phase provides:
+
+1. **Controlled Launch:** Time to identify and fix critical bugs before real capital enters
+2. **Emergency Shutdown Option:** If a severe vulnerability is discovered, the system can be safely wound down
+3. **Gradual Ramp-Up:** Real stablecoin bridges can be added and tested alongside the bootstrap
+4. **Transparent Risk Window:** Users know exactly when the bootstrap phase ends
+
+### Risks During Bootstrap Phase
+
+::: danger BOOTSTRAP RISKS
+During the first 6 weeks, be aware:
+
+- **No Real Backing:** JUSD minted via SUSD is not backed by real dollar assets
+- **Deployer Trust:** The deployer team could theoretically harm the system during this window
+
+**After the 6-week horizon expires, these risks are eliminated.**
+:::
 
 ### StartUSD Properties
 
@@ -205,6 +248,7 @@ StartUSD serves as the genesis stablecoin to:
 | Decimals | 18 |
 | Total Supply | 100,000,000 |
 | Initial Holder | Deployer |
+| **Intrinsic Value** | **None** (bootstrap token only) |
 
 ### Bridge Details
 
@@ -217,7 +261,7 @@ StartUSD serves as the genesis stablecoin to:
 |----------|-------|
 | Source Token | StartUSD |
 | Limit | Configured at deployment |
-| Horizon | Configured at deployment |
+| **Horizon** | **6 weeks** (bootstrap period) |
 
 ## Adding New Bridges
 
