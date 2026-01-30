@@ -9,6 +9,19 @@ module.exports = {
     ["meta", { name: "theme-color", content: "#F57F00" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
+    // Open Graph
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:site_name", content: "JuiceDollar Documentation" }],
+    ["meta", { property: "og:title", content: "JuiceDollar (JUSD) Documentation" }],
+    ["meta", { property: "og:description", content: "JuiceDollar (JUSD) - A decentralized, over-collateralized stablecoin on Citrea. No oracles, no admin keys, fully permissionless." }],
+    ["meta", { property: "og:image", content: "https://docs.juicedollar.com/assets/logo.png" }],
+    ["meta", { property: "og:url", content: "https://docs.juicedollar.com" }],
+    // Twitter Card
+    ["meta", { name: "twitter:card", content: "summary" }],
+    ["meta", { name: "twitter:title", content: "JuiceDollar (JUSD) Documentation" }],
+    ["meta", { name: "twitter:description", content: "JuiceDollar (JUSD) - A decentralized, over-collateralized stablecoin on Citrea. No oracles, no admin keys, fully permissionless." }],
+    ["meta", { name: "twitter:image", content: "https://docs.juicedollar.com/assets/logo.png" }],
+    // Weglot
     [ "script", { type: "text/javascript", src: "https://cdn.weglot.com/weglot.min.js" }, ],
     [
       "script",
