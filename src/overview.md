@@ -40,6 +40,47 @@ JuiceDollar is a collateralized stablecoin that tracks the value of the US Dolla
 
 JuiceDollar Pool Shares (JUICE) are the [governance](governance.md) token of the system. Anyone can obtain newly minted JUICE by providing equity capital to the system (or later return them again to get their share of capital back). The JUICE holders benefit from the earned fees and liquidation profits, but they are also the ones that carry the residual risk of liquidations, similar to the shareholders of a bank. Therefore, JUICE holders have an incentive to grow the system and ensure its stability. The governance process is veto-based: anyone can propose new types of collateral or even completely new methods to bring JuiceDollar into circulation, but already 2% of the voting power suffices to veto such proposals.
 
+## How JUSD is Backed
+
+JuiceDollar is designed to be **over-collateralized** at all times. For every JUSD in circulation, there are assets worth more than $1 backing it. This backing comes from two primary sources:
+
+### 1. Collateralized Positions
+
+The main mechanism for creating JUSD is through **collateralized debt positions**. Users deposit collateral (e.g., cBTC) and can mint JUSD against it:
+
+| Aspect | Description |
+|--------|-------------|
+| **Collateral Ratio** | Typically 110-150%+ depending on the collateral type |
+| **Liquidation** | Undercollateralized positions can be challenged and liquidated |
+| **Reserve** | Part of the minted JUSD is held back as a liquidation reserve |
+
+For details on how positions work, see [Positions](positions/).
+
+### 2. Stablecoin Bridges
+
+JUSD can also be minted 1:1 against trusted external stablecoins through [bridges](swap.md):
+
+| Bridge | Contract |
+|--------|----------|
+| **USDC** | [`0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F`](https://citreascan.com/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) |
+| **USDT** | [`0x5CC0e668F8BA61E111B6168E19d17d3C65040614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) |
+| **CTUSD** | [`0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) |
+| **StartUSD** | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
+
+Bridge volume is limited and time-restricted to minimize risk from external stablecoin failures.
+
+### Bootstrap Phase (Temporary)
+
+::: warning
+During the initial 6-week bootstrap phase, JUSD can also be minted via the StartUSD bridge. StartUSD has no intrinsic value - it exists solely to initialize the system. After 6 weeks, this bridge expires permanently and all JUSD will be backed only by real collateral and audited stablecoins.
+
+See [StartUSD Bridge](swap.md#startusd-bridge) for full details.
+:::
+
+### The Role of JUICE
+
+JUICE holders provide an additional safety buffer. If liquidations result in bad debt, JUICE holders absorb the loss. This makes JUICE similar to bank equity - profitable in good times, but first in line to take losses.
+
 ## Use Cases
 
 Like other stablecoins, JuiceDollar primarily serves three use-cases. The only use-case described extensively in this documentation is that of borrowing as it is embedded in the system. To fully leverage the other use-cases, further tools and services such as exchanges and wallets are necessary that are not described herein.
