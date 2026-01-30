@@ -235,7 +235,6 @@ During the first 6 weeks, be aware:
 
 - **No Real Backing:** JUSD minted via SUSD is not backed by real dollar assets
 - **Deployer Trust:** The deployer team could theoretically harm the system during this window
-- **Not for Production Use:** Do not treat JUSD as a stable store of value during bootstrap
 
 **After the 6-week horizon expires, these risks are eliminated.**
 :::
