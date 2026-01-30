@@ -150,10 +150,19 @@ The vault uses OpenZeppelin's virtual shares pattern to prevent "inflation attac
 
 ## Contract Addresses
 
+### Mainnet (Chain ID: 4114)
+
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Main savings with frontend rewards |
-| SavingsVaultJUSD | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://explorer.testnet.citrea.xyz/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 vault adapter |
+| SavingsGateway | [`0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) | Main savings with frontend rewards |
+| SavingsVaultJUSD | [`0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) | ERC-4626 vault adapter |
+
+### Testnet (Chain ID: 5115)
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Main savings with frontend rewards |
+| SavingsVaultJUSD | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 vault adapter |
 
 ## Interest Calculation Example
 

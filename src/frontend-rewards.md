@@ -56,7 +56,7 @@ Call the registration function:
 function registerFrontendCode(bytes32 frontendCode) external returns (bool)
 ```
 
-**Contract:** [`FrontendGateway`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0)
+**Contract:** FrontendGateway ([Mainnet](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) | [Testnet](https://testnet.citreascan.com/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0))
 
 ### Step 3: Integrate Into Your Frontend
 
@@ -174,9 +174,16 @@ function executeChanges() external
 import { ethers } from 'ethers';
 
 const FRONTEND_CODE = ethers.utils.formatBytes32String("myapp");
-const FRONTEND_GATEWAY = "0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0";
-const SAVINGS_GATEWAY = "0x54430781b33581CE2b0DBD837CA66113BeEEFD8e";
-const MINTING_HUB_GATEWAY = "0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8";
+
+// Mainnet addresses
+const FRONTEND_GATEWAY = "0x3090a89A1fF5DC99117BE655599e5491A0BaBB92";
+const SAVINGS_GATEWAY = "0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b";
+const MINTING_HUB_GATEWAY = "0x1a20B160bf546774246C7920939E6e7Ac0f88b8e";
+
+// Testnet addresses (for development)
+// const FRONTEND_GATEWAY = "0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0";
+// const SAVINGS_GATEWAY = "0x54430781b33581CE2b0DBD837CA66113BeEEFD8e";
+// const MINTING_HUB_GATEWAY = "0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8";
 
 // Investment with rewards
 async function investWithRewards(amount, expectedShares) {
@@ -212,11 +219,21 @@ This enables:
 
 ## Contract Addresses
 
+### Mainnet (Chain ID: 4114)
+
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| FrontendGateway | [`0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0`](https://explorer.testnet.citrea.xyz/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Core reward tracking |
-| MintingHubGateway | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://explorer.testnet.citrea.xyz/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) | Position rewards |
-| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://explorer.testnet.citrea.xyz/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings rewards |
+| FrontendGateway | [`0x3090a89A1fF5DC99117BE655599e5491A0BaBB92`](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) | Core reward tracking |
+| MintingHubGateway | [`0x1a20B160bf546774246C7920939E6e7Ac0f88b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) | Position rewards |
+| SavingsGateway | [`0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) | Savings rewards |
+
+### Testnet (Chain ID: 5115)
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| FrontendGateway | [`0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0`](https://testnet.citreascan.com/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Core reward tracking |
+| MintingHubGateway | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) | Position rewards |
+| SavingsGateway | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings rewards |
 
 ## Events
 
