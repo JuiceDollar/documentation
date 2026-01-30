@@ -1,13 +1,13 @@
 {
-  "name": "DecentralizedEuro-documentation",
+  "name": "juicedollar-documentation",
   "version": "0.0.1",
-  "description": "Documentation for dEuro.com",
+  "description": "JuiceDollar (JUSD) - A decentralized, over-collateralized stablecoin on Citrea. No oracles, no admin keys, fully permissionless.",
   "main": "index.js",
   "authors": {
-    "name": "DFX",
-    "email": "info@dfx.swiss"
+    "name": "JuiceDollar",
+    "email": "info@juicedollar.com"
   },
-  "repository": "https://github.com/d-EURO/documentation/",
+  "repository": "https://github.com/JuiceDollar/documentation/",
   "scripts": {
     "start": "vuepress dev src",
     "build": "vuepress build src"
