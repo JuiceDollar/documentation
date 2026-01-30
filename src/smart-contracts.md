@@ -315,18 +315,27 @@ Enables 1:1 conversion between trusted external stablecoins and JUSD.
 
 ### StartUSD
 
-Genesis stablecoin used to bootstrap the JuiceDollar protocol.
+Genesis token used to bootstrap the JuiceDollar protocol during the initial 6-week launch phase.
+
+::: warning BOOTSTRAP TOKEN
+**StartUSD has no intrinsic value.** It exists solely to initialize the system during the 6-week bootstrap phase. After this period, the StartUSD bridge expires and no new SUSD can enter the system.
+
+See [StartUSD Bridge](swap.md#startusd-bridge) for full details on the bootstrap phase and associated risks.
+:::
 
 **Key Features:**
 - Simple ERC-20 token with fixed supply
 - Mints 100,000,000 SUSD to deployer
 - Used to initialize JUSD through the StablecoinBridge
 - Creates initial JUICE token supply
+- **Bridge expires after 6 weeks** - deployer influence is time-limited
 
 | Property | Value |
 |----------|-------|
 | **Symbol** | SUSD |
 | **Total Supply** | 100,000,000 |
+| **Intrinsic Value** | None (bootstrap only) |
+| **Bridge Horizon** | 6 weeks |
 
 | Network | Address |
 |---------|---------|
