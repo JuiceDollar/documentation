@@ -15,7 +15,7 @@ The contracts are organized into five main categories:
 | **Core** | Token contracts and reserve management |
 | **MintingHub** | Position management and collateralized minting |
 | **Savings** | Interest-bearing savings functionality |
-| **Bridges** | Stablecoin conversion and bootstrapping |
+| **Bridges** | Stablecoin conversion |
 | **Gateways** | Frontend rewards and enhanced functionality |
 
 ---
@@ -296,14 +296,7 @@ Enables 1:1 conversion between trusted external stablecoins and JUSD.
 |----------|-------|
 | **Emergency Quorum** | 10% |
 
-**StartUSD Bridge:**
-
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
-| **Testnet** | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
-
-**Additional Mainnet Bridges:**
+**Mainnet Bridges:**
 
 | Bridge | Address |
 |--------|---------|
@@ -313,36 +306,18 @@ Enables 1:1 conversion between trusted external stablecoins and JUSD.
 
 ---
 
-### StartUSD
+### StartUSD (Historical)
 
-Genesis token used to bootstrap the JuiceDollar protocol during the initial 6-week launch phase.
+StartUSD (SUSD) was a simple ERC-20 bootstrap token used to initialize the JuiceDollar system during a time-limited 6-week launch phase. The StartUSD bridge has since expired and SUSD is no longer part of the system.
 
-::: warning BOOTSTRAP TOKEN
-**StartUSD has no intrinsic value.** It exists solely to initialize the system during the 6-week bootstrap phase. After this period, the StartUSD bridge expires and no new SUSD can enter the system.
+| Network | Contract | Address |
+|---------|----------|---------|
+| **Mainnet** | Token | [`0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80`](https://citreascan.com/address/0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80) |
+| **Mainnet** | Bridge (expired) | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
+| **Testnet** | Token | [`0x8398Da4c32eaE51B9840DA230095BB29F4179590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) |
+| **Testnet** | Bridge (expired) | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 
-See [StartUSD Bridge](swap.md#startusd-bridge) for full details on the bootstrap phase and associated risks.
-:::
-
-**Key Features:**
-- Simple ERC-20 token with fixed supply
-- Mints 100,000,000 SUSD to deployer
-- Used to initialize JUSD through the StablecoinBridge
-- Creates initial JUICE token supply
-- **Bridge expires after 6 weeks** - deployer influence is time-limited
-
-| Property | Value |
-|----------|-------|
-| **Symbol** | SUSD |
-| **Total Supply** | 100,000,000 |
-| **Intrinsic Value** | None (bootstrap only) |
-| **Bridge Horizon** | 6 weeks |
-
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80`](https://citreascan.com/address/0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80) |
-| **Testnet** | [`0x8398Da4c32eaE51B9840DA230095BB29F4179590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) |
-
-**Additional Mainnet Stablecoins:**
+**Mainnet Stablecoins:**
 
 | Token | Address |
 |-------|---------|
@@ -441,7 +416,6 @@ Extended Savings module with frontend reward integration.
 | SavingsGateway | [`0x22FE...60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) | Savings with frontend rewards |
 | SavingsVaultJUSD | [`0x1b70...97d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) | ERC-4626 savings vault |
 | FrontendGateway | [`0x3090...B92`](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) | Frontend reward system |
-| StartUSD Bridge | [`0x51ff...4dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) | Bootstrap stablecoin bridge |
 | USDC Bridge | [`0x920D...20F`](https://citreascan.com/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) | USDC stablecoin bridge |
 | USDT Bridge | [`0x5CC0...614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) | USDT stablecoin bridge |
 | CTUSD Bridge | [`0x8D11...0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) | CTUSD stablecoin bridge |
@@ -458,8 +432,8 @@ Extended Savings module with frontend reward integration.
 | SavingsGateway | [`0x5443...D8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings with frontend rewards |
 | SavingsVaultJUSD | [`0x802a...c7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 savings vault |
 | FrontendGateway | [`0xd824...1D0`](https://testnet.citreascan.com/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Frontend reward system |
-| StartUSD Bridge | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Bootstrap stablecoin bridge |
-| StartUSD | [`0x8398...590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) | Genesis stablecoin |
+| StartUSD Bridge (expired) | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Bootstrap stablecoin bridge (expired) |
+| StartUSD | [`0x8398...590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) | Bootstrap token (historical) |
 
 ---
 

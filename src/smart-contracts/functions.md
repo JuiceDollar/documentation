@@ -953,9 +953,9 @@ event PositionRewardAdded(bytes32 frontendCode, address position, uint256 amount
 
 ---
 
-## StartUSD
+## StartUSD (Historical)
 
-Bootstrap stablecoin for protocol initialization.
+Bootstrap stablecoin used for protocol initialization. The StartUSD bridge has since expired and SUSD is no longer actively used in the system.
 
 ### Functions
 
