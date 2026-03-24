@@ -4,7 +4,7 @@
 
 ## Structure and Purpose
 
-The purpose of this page is to provide potential users of the JuiceDollar system with everything they need to know to meaningfully interact with it. For actually interacting with the system, there is a standard [frontend](https://app.juicedollar.com/). The name JuiceDollar hints at its self-governing nature, but also the risks associated with releasing an artificial machinery into the wild. If you encounter errors or if things are not clear to you, you can [file a suggestion for improving this page on GitHub](https://github.com/JuiceDollar/smartContracts/issues).
+The purpose of this page is to provide potential users of the JuiceDollar system with everything they need to know to meaningfully interact with it. For actually interacting with the system, there is a standard [frontend](https://bapp.juicedollar.com/). The name JuiceDollar hints at its self-governing nature, but also the risks associated with releasing an artificial machinery into the wild. If you encounter errors or if things are not clear to you, you can [file a suggestion for improving this page on GitHub](https://github.com/JuiceDollar/smartContracts/issues).
 
 ## The Cypherpunk Heritage
 
