@@ -4,7 +4,7 @@
 
 ## Structure and Purpose
 
-The purpose of this page is to provide potential users of the JuiceDollar system with everything they need to know to meaningfully interact with it. For actually interacting with the system, there is a standard [frontend](https://app.juicedollar.com/). The name JuiceDollar hints at its self-governing nature, but also the risks associated with releasing an artificial machinery into the wild. If you encounter errors or if things are not clear to you, you can [file a suggestion for improving this page on GitHub](https://github.com/JuiceDollar/smartContracts/issues).
+The purpose of this page is to provide potential users of the JuiceDollar system with everything they need to know to meaningfully interact with it. For actually interacting with the system, there is a standard [frontend](https://bapp.juicedollar.com/). The name JuiceDollar hints at its self-governing nature, but also the risks associated with releasing an artificial machinery into the wild. If you encounter errors or if things are not clear to you, you can [file a suggestion for improving this page on GitHub](https://github.com/JuiceDollar/smartContracts/issues).
 
 ## The Cypherpunk Heritage
 
@@ -65,17 +65,7 @@ JUSD can also be minted 1:1 against trusted external stablecoins through [bridge
 | **USDC** | [`0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F`](https://citreascan.com/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) |
 | **USDT** | [`0x5CC0e668F8BA61E111B6168E19d17d3C65040614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) |
 | **CTUSD** | [`0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) |
-| **StartUSD** | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
-
 Bridge volume is limited and time-restricted to minimize risk from external stablecoin failures.
-
-### Bootstrap Phase (Temporary)
-
-::: warning
-During the initial 6-week bootstrap phase, JUSD can also be minted via the StartUSD bridge. StartUSD has no intrinsic value - it exists solely to initialize the system. After 6 weeks, this bridge expires permanently and all JUSD will be backed only by real collateral and audited stablecoins.
-
-See [StartUSD Bridge](swap.md#startusd-bridge) for full details.
-:::
 
 ### The Role of JUICE
 
@@ -99,5 +89,5 @@ Anyone can mint new JuiceDollars against a collateral using the built-in borrowi
 
 ## Technical Architecture
 
-The JuiceDollar system consists of a set of smart contracts on Citrea. The two token contracts serve as a foundation for everything else. JuiceDollar can have an arbitrary number of contracts that have the power to mint and burn JUSD. Anyone can propose new such contracts and once they passed the governance process, they can start minting and burning JuiceDollar. Today, there are two such contracts. One is a simple bridge to bootstrap JuiceDollar based on StartUSD. The other is a contract named minting hub that serves as the central point to manage all debt positions. The JUICE token has built-in governance features and holds the equity capital of the system.
+The JuiceDollar system consists of a set of smart contracts on Citrea. The two token contracts serve as a foundation for everything else. JuiceDollar can have an arbitrary number of contracts that have the power to mint and burn JUSD. Anyone can propose new such contracts and once they passed the governance process, they can start minting and burning JuiceDollar. The main contracts are the stablecoin bridges that peg JUSD 1:1 to other stablecoins, and the minting hub that serves as the central point to manage all debt positions. The JUICE token has built-in governance features and holds the equity capital of the system.
 <figure style="text-align: center"><img src="/assets/arch.jpeg" alt=""><figcaption><p>Technical Architecture</p></figcaption></figure>

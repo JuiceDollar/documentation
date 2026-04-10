@@ -2,7 +2,7 @@
 
 **How to adjust a position**
 
-Once you are the proud owner of a position whose cooldown period has passed, you can start to adjust it. You can adjust the outstanding amount, the amount of the deposited collateral, and the liquidation price. Every input field has a magic wand button that automatically sets the value to whatever makes most sense given the other two values.
+Once you are the proud owner of a position, you can start to adjust it. You can adjust the outstanding amount, the amount of the deposited collateral, and the liquidation price. Where the app offers it, a Max button fills the field to the largest allowed value for the current constraints. The liquidation price is tuned with a slider rather than the same Max pattern used for loan or collateral amounts.
 
 The following rules apply:
 

@@ -7,7 +7,7 @@ This is the standard way to obtain JuiceDollars against a collateral. Unlike cre
 <figure style="text-align: center"><img src="/assets/clone-list.png" alt=""><figcaption><p>Existing positions</p></figcaption></figure>
 
 
-When selecting a position on the position overview, you get to see its detail view which shows all the relevant parameters. If you are interested in borrowing JuiceDollars and you think the terms are reasonable, you can proceed by clicking "borrow", which leads you to the borrow page.
+When selecting a position on the position overview (Monitoring), you get to see its detail view with all the relevant parameters. If you want to mint against that position type and you are not the owner, click Clone — that opens the Borrow page with that parent position pre-selected. If you are the owner, use Manage to open your position’s adjustment hub instead of cloning.
 
 <figure style="text-align: center"><img src="/assets/clone-position.png" alt=""><figcaption><p>Position details</p></figcaption></figure>
 

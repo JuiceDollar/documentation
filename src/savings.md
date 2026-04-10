@@ -50,7 +50,7 @@ The Leadrate uses a "ticks" system for precise interest calculation:
 
 To start earning interest:
 
-1. Navigate to the Savings page on the [JuiceDollar app](https://app.juicedollar.com)
+1. Navigate to the Savings page on the [JuiceDollar app](https://bapp.juicedollar.com)
 2. Enter the amount of JUSD you want to deposit
 3. Approve the transaction
 4. Your JUSD immediately starts earning interest

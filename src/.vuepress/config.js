@@ -21,16 +21,6 @@ module.exports = {
     ["meta", { name: "twitter:title", content: "JuiceDollar (JUSD) Documentation" }],
     ["meta", { name: "twitter:description", content: "JuiceDollar (JUSD) - A decentralized, over-collateralized stablecoin on Citrea. No oracles, no admin keys, fully permissionless." }],
     ["meta", { name: "twitter:image", content: "https://docs.juicedollar.com/assets/logo.png" }],
-    // Weglot
-    [ "script", { type: "text/javascript", src: "https://cdn.weglot.com/weglot.min.js" }, ],
-    [
-      "script",
-      {},
-      `Weglot.initialize({
-        api_key: 'wg_3fa7772719c0808c3a058c58e13b59890'
-      });
-      `,
-    ],
   ],
 
   themeConfig: {

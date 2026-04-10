@@ -185,72 +185,13 @@ Watch the balance changes to understand market dynamics:
 | **Outflow** (burning) | JUSD is less attractive, possibly rates too low |
 | **Balanced** | Market in equilibrium |
 
-## StartUSD Bridge
+## StartUSD Bridge (Historical)
 
-The initial bootstrap bridge uses StartUSD, a simple ERC-20 token created specifically for JuiceDollar initialization.
+During the initial launch of JuiceDollar, a bootstrap token called StartUSD (SUSD) was used to initialize the system. StartUSD was a simple ERC-20 token with no intrinsic value, created solely to enable the first JUSD minting and governance setup during a time-limited 6-week bootstrap phase.
 
-### Important: Bootstrap Phase Transparency
+The StartUSD bridge has since expired. SUSD is no longer part of the system and all JUSD in circulation is now backed by real collateral and audited stablecoins.
 
-::: warning BOOTSTRAP PHASE
-**StartUSD (SUSD) has no intrinsic value.** It is a simple ERC-20 token that mints its entire supply to the deployer. During the bootstrap phase, JUSD minted via the StartUSD bridge is technically **not backed by real assets**.
-
-This is a deliberate design choice with built-in safeguards explained below.
-:::
-
-### Purpose
-
-StartUSD serves as the genesis mechanism to:
-1. Create initial JUSD supply for system testing
-2. Enable first JUICE minting and governance setup
-3. Bootstrap the system in a controlled environment before connecting to established stablecoins
-
-### The 6-Week Bootstrap Window
-
-The StartUSD bridge has a **strict 6-week horizon**. This time-limited window is a critical security feature:
-
-| Phase | Duration | What Happens |
-|-------|----------|--------------|
-| **Bootstrap Phase** | Weeks 1-6 | SUSD can be bridged to JUSD, system is initializing |
-| **Post-Bootstrap** | After Week 6 | SUSD bridge expires, no new SUSD can enter the system |
-
-**After the 6-week horizon:**
-- No new StartUSD can be minted into JUSD
-- The deployer's ability to add unbacked JUSD is permanently removed
-- Only bridges to real, audited stablecoins (USDC, USDT, etc.) remain active
-- The system transitions to being fully backed by real assets
-
-### Why This Design?
-
-The 6-week bootstrap phase provides:
-
-1. **Controlled Launch:** Time to identify and fix critical bugs before real capital enters
-2. **Emergency Shutdown Option:** If a severe vulnerability is discovered, the system can be safely wound down
-3. **Gradual Ramp-Up:** Real stablecoin bridges can be added and tested alongside the bootstrap
-4. **Transparent Risk Window:** Users know exactly when the bootstrap phase ends
-
-### Risks During Bootstrap Phase
-
-::: danger BOOTSTRAP RISKS
-During the first 6 weeks, be aware:
-
-- **No Real Backing:** JUSD minted via SUSD is not backed by real dollar assets
-- **Deployer Trust:** The deployer team could theoretically harm the system during this window
-
-**After the 6-week horizon expires, these risks are eliminated.**
-:::
-
-### StartUSD Properties
-
-| Property | Value |
-|----------|-------|
-| Name | StartUSD |
-| Symbol | SUSD |
-| Decimals | 18 |
-| Total Supply | 100,000,000 |
-| Initial Holder | Deployer |
-| **Intrinsic Value** | **None** (bootstrap token only) |
-
-### Bridge Details
+### Bridge Contracts (Expired)
 
 | Network | Address |
 |---------|---------|
@@ -338,15 +279,15 @@ event EmergencyStopped(address indexed caller, string message)
 
 | Bridge | Source | Address | Status |
 |--------|--------|---------|--------|
-| StartUSD | SUSD | [`0x51ff...4dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) | Active |
 | USDC | USDC | [`0x920D...20F`](https://citreascan.com/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) | Active |
 | USDT | USDT | [`0x5CC0...614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) | Active |
 | CTUSD | CTUSD | [`0x8D11...0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) | Active |
+| StartUSD | SUSD | [`0x51ff...4dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) | Expired |
 
 ### Testnet (Chain ID: 5115)
 
 | Bridge | Source | Address | Status |
 |--------|--------|---------|--------|
-| StartUSD | SUSD | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Active |
+| StartUSD | SUSD | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Expired |
 
 *Additional bridges may be added through governance.*
