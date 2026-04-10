@@ -69,14 +69,6 @@ JUSD can also be minted 1:1 against trusted external stablecoins through [bridge
 
 Bridge volume is limited and time-restricted to minimize risk from external stablecoin failures.
 
-### Bootstrap Phase (Temporary)
-
-::: warning
-During the initial 6-week bootstrap phase, JUSD can also be minted via the StartUSD bridge. StartUSD has no intrinsic value - it exists solely to initialize the system. After 6 weeks, this bridge expires permanently and all JUSD will be backed only by real collateral and audited stablecoins.
-
-See [StartUSD Bridge](swap.md#startusd-bridge) for full details.
-:::
-
 ### The Role of JUICE
 
 JUICE holders provide an additional safety buffer. If liquidations result in bad debt, JUICE holders absorb the loss. This makes JUICE similar to bank equity - profitable in good times, but first in line to take losses.
