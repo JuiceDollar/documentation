@@ -1,6 +1,6 @@
 # Machbarkeitsstudie: JuiceDollar auf OP_NET (Bitcoin L1)
 
-**Version:** 3.0
+**Version:** 4.0
 **Datum:** 20. April 2026
 **Status:** Abgeschlossen — Entscheidung: Umsetzung als MVP
 
@@ -22,10 +22,11 @@
    - 3.6 [Storage-Modell](#36-storage-modell)
    - 3.7 [Mathematische Operationen](#37-mathematische-operationen)
    - 3.8 [Kryptographische Primitive](#38-kryptographische-primitive)
-4. [Kritische Analyse: Collateral-Modell](#4-kritische-analyse-collateral-modell)
+4. [Collateral-Modell](#4-collateral-modell)
    - 4.1 [WBTC Trust-Modell — Code-Analyse](#41-wbtc-trust-modell--code-analyse)
    - 4.2 [Auswirkung auf das JuiceDollar-Sicherheitsmodell](#42-auswirkung-auf-das-juicedollar-sicherheitsmodell)
-   - 4.3 [Loesungsansaetze fuer das Custodian-Problem](#43-loesungsansaetze-fuer-das-custodian-problem)
+   - 4.3 [Trustless Bridging: AuxPoW vs BitVM2](#43-trustless-bridging-auxpow-vs-bitvm2)
+   - 4.4 [Loesung: Zeitlich begrenztes Multi-Collateral-System](#44-loesung-zeitlich-begrenztes-multi-collateral-system)
 5. [Kritische Analyse: Challenge-Mechanismus](#5-kritische-analyse-challenge-mechanismus)
    - 5.1 [Preisfindung bei 10-Minuten-Blocks](#51-preisfindung-bei-10-minuten-blocks)
    - 5.2 [Oekonomische Tragfaehigkeit von Challenges](#52-oekonomische-tragfaehigkeit-von-challenges)
@@ -62,7 +63,7 @@ Diese Studie untersucht die Machbarkeit einer Portierung des JuiceDollar-Protoko
 
 **Oracle-freier Challenge-Mechanismus: Funktioniert.** Die detaillierte Analyse zeigt, dass die Dutch Auction mit 144 Preis-Ticks pro Tag (bei 1-Tag Challenge-Periode) **mehr Preispunkte** bietet als Aave (1), Compound (1) oder Liquity (1). Die maximale Ueberzahlung durch Granularitaet betraegt <0,7% pro Tick. Challenge-Rewards sind stark profitabel (~9.000 JUSD fuer eine 10-BTC-Challenge). MEV ist kein praktisches Problem, da die Dutch Auction eine natuerliche Abwehr bietet: frueh bieten = ueberbezahlen. Bei 150% Collateralization Ratio besteht ein 33%-Puffer — ein 33%-Drop in 24h entspricht 12,6 Sigma und ist praktisch unmoeglich.
 
-**Collateral: Loesbar durch eigenen JuiceBTC-Token.** Das Standard-WBTC auf OP_NET hat ein zentralisiertes Trust-Modell (Single-Key Custodian). Durch Deployment eines eigenen JuiceBTC-Tokens (jBTC) mit Multisig-Custodian, Timelock, Rate-Limit und ohne burnFrom-Funktion wird das Collateral **trust-minimiert und besser als WBTC auf Ethereum**. Der Deposit-Vorgang ist dank PSBT-Verifikation (`Blockchain.tx.outputs`) vollstaendig trustless. Ein Bitcoin-Script-Timelock bietet einen Withdrawal-Fallback ohne Custodian-Kooperation.
+**Collateral: Geloest durch zeitlich begrenztes Multi-Collateral-System.** Das Standard-WBTC auf OP_NET hat ein zentralisiertes Trust-Modell (Single-Key Custodian). Statt einen eigenen Wrapped-BTC-Token zu bauen, nutzt JuiceDollar sein bestehendes Multi-Collateral-System: WBTC wird als **temporaeres Collateral mit Ablaufdatum und Mint-Limit** akzeptiert — identisch zum StartUSD-Bootstrap-Pattern auf Citrea. Wenn eine trustless BTC-Bridge verfuegbar wird (OP_LINK, BitVM2), wird sie als neues Collateral hinzugefuegt. Alte WBTC-Positionen laufen natuerlich aus. Das Protokoll selbst bleibt trustless; nur das initiale Collateral hat ein bekanntes, begrenztes Risikoprofil.
 
 **Verbleibende Einschraenkung: Peg-Stabilitaet.** Ohne Stablecoins auf OP_NET fehlt der harte Peg-Floor, den USDC/USDT-Bridges auf Citrea bieten. Mitigationen existieren (StartUSD-Bootstrap, MotoSwap-Liquiditaet, Savings-Rate), aber der Peg bleibt initial weicher als auf Citrea. Der OP-20S Stablecoin-Standard ist fuer Q2 2026 angekuendigt und wuerde dieses Problem loesen.
 
@@ -71,14 +72,14 @@ Diese Studie untersucht die Machbarkeit einer Portierung des JuiceDollar-Protoko
 | Kernwert | Status auf OP_NET |
 |----------|------------------|
 | Oracle-free | Vollstaendig erfuellt |
-| Censorship-resistant | Vollstaendig erfuellt (kein burnFrom, kein Blacklist) |
+| Censorship-resistant | Vollstaendig erfuellt |
 | Self-custody | Vollstaendig erfuellt |
 | Code is Law | Vollstaendig erfuellt (immutable Contracts) |
 | Permissionless | Vollstaendig erfuellt |
-| Trustless | Weitgehend erfuellt (Deposit trustless, Mint trust-minimiert via Multisig + Timelock) |
+| Trustless | Protokoll vollstaendig trustless; initiales Collateral (WBTC) zeitlich + volumenmässig begrenzt |
 | Veto-Governance | Vollstaendig erfuellt |
 
-**Entscheidung:** Umsetzung als Minimal Viable Stablecoin (MVP) mit dem vollstaendigen oracle-freien Challenge-System und einem eigenen JuiceBTC-Collateral-Token. JUSD wird der erste Stablecoin auf OP_NET und der erste oracle-freie, Bitcoin-besicherte Stablecoin direkt auf Bitcoin Layer 1.
+**Entscheidung:** Umsetzung als Minimal Viable Stablecoin (MVP) mit 3 Contracts (JUSD, MintingHub, Position), dem vollstaendigen oracle-freien Challenge-System und dem bestehenden WBTC als zeitlich begrenztem Collateral. JUSD wird der erste Stablecoin auf OP_NET und der erste oracle-freie, Bitcoin-besicherte Stablecoin direkt auf Bitcoin Layer 1.
 
 ---
 
@@ -437,106 +438,91 @@ JuiceDollars Sicherheit basiert auf der Annahme, dass das Collateral seinen Wert
 
 **Kernproblem:** Das JuiceDollar-Protokoll kann diese Szenarien **nicht erkennen und nicht verhindern**. Der Challenge-Mechanismus prueft Collateral-Mengen, nicht die tatsaechliche BTC-Deckung des WBTC.
 
-### 4.3 Loesung: Eigener JuiceBTC-Token (jBTC)
+### 4.3 Trustless Bridging: AuxPoW vs BitVM2
 
-Statt das Standard-WBTC auf OP_NET zu verwenden, wird ein **eigener Wrapped-BTC-Token** deployed, der die identifizierten Schwaechen systematisch adressiert. Die Code-Analyse zeigt, dass alle notwendigen Mechanismen auf OP_NET implementierbar sind.
+Fuer die langfristige Loesung des Collateral-Problems ist es wichtig zu verstehen, welche Technologien fuer trustless BTC-Wrapping existieren und wie sie sich zu OP_NET verhalten.
 
-**4.3.1 Architektur des JuiceBTC-Tokens**
+**OP_LINK (AuxPoW-basiert):**
 
-| Eigenschaft | Standard-WBTC (OP_NET) | JuiceBTC (jBTC) |
-|-------------|----------------------|-----------------|
-| Custodian | Einzelner Private Key | **3-of-5 Multisig** (on-chain implementiert) |
-| Minting | Sofort, unbegrenzt | **Timelock (144 Blocks ~24h) + Rate-Limit** |
-| burnFrom (Konfiszierung) | Ja, jede Adresse | **Strukturell entfernt** |
-| Peg-Rate-Aenderung | Sofort | **Timelock + Multisig** |
-| Contract-Upgrade | Moeglich | **Immutable** (kein `onUpdate`) |
-| BTC-Deposit | Trust-basiert | **Trustless** (PSBT-Verifikation) |
-| BTC-Withdrawal | Custodian-only | **Bitcoin-Script-Timelock-Fallback** |
+OP_NET plant mit OP_LINK eine eigene Bridge-Loesung basierend auf Auxiliary Proof of Work (AuxPoW). Der Mechanismus nutzt gemeinsames Mining als Synchronisationspunkt zwischen Chains. Allerdings zeigt die Code-Analyse, dass OP_LINK **nicht im WBTC-Contract implementiert** ist und **natives BTC nicht trustless locken kann**. AuxPoW funktioniert fuer die Synchronisation von OP_NET-Tokens, aber fuer natives BTC faellt es auf PoA-Multisig zurueck — weil Bitcoin selbst keine Smart Contracts hat, die ein Lock erzwingen koennen.
 
-**4.3.2 Multisig fuer Mint-Operationen**
+**BitVM2 (Optimistic Verification):**
 
-OP_NET hat keine native Multisig-Unterstuetzung, aber sie laesst sich im Contract implementieren:
+BitVM2 loest genau dieses Problem: Es emuliert Covenants durch Pre-signed Transactions und ermoeglicht ein programmatisches Lock von BTC ohne Multisig-Vertrauen. Das Trust-Modell erfordert nur 1-of-N ehrliche Teilnehmer (vs. Mehrheits-Annahme bei AuxPoW). Mehrere BitVM2-Bridges sind bereits auf Mainnet (Bitlayer seit Juli 2025, Citrea Clementine seit Januar 2026).
 
-```typescript
-// Pattern: M-of-N Approval fuer Mint
-// proposeMint(to, amount) -> speichert Proposal
-// approveMint(proposalId) -> zaehlt Approvals, fuehrt _mint() erst bei Threshold aus
-```
+**Vergleich:**
 
-Jede Approval ist eine separate Bitcoin-Transaktion. Bei 3-of-5: Drei Signers senden jeweils eine TX mit `approveMint()`. Erst die dritte TX loest den eigentlichen Mint aus.
+| | AuxPoW (OP_LINK) | BitVM2 |
+|---|---|---|
+| **Prinzip** | Gemeinsame Sicht durch Shared Mining | Oekonomische Anreize + kryptographische Beweise |
+| **Trust-Modell** | Mehrheit der Indexer ehrlich | **1-of-N** — ein ehrlicher Teilnehmer reicht |
+| **Natives BTC locken** | Nicht geloest (PoA-Fallback) | **Geloest** (Pre-signed TX Covenants) |
+| **Status auf OP_NET** | Konzept, nicht implementiert | Keine Plaene seitens OP_NET |
+| **Status allgemein** | Merged Mining seit Jahren (Namecoin, etc.) | Mainnet seit 2025 (Bitlayer, Citrea) |
 
-**4.3.3 Timelock und Rate-Limit**
+Weder AuxPoW noch BitVM2 sind aktuell auf OP_NET verfuegbar. Beide koennten langfristig integriert werden.
 
-Mint-Proposals werden mit einem **144-Block-Delay** (ca. 24 Stunden) versehen. Dies gibt der Community Zeit, einen fehlerhaften oder boesartigen Mint zu erkennen und zu reagieren. Zusaetzlich begrenzt ein **Rate-Limit** die maximale Mint-Menge pro Epoch (z.B. 10 BTC pro 144 Blocks).
+### 4.4 Loesung: Zeitlich begrenztes Multi-Collateral-System
 
-Technische Umsetzung via `Blockchain.block.number` (u64) fuer Zeitvergleiche — zuverlaessig und nicht manipulierbar.
+Statt einen eigenen Wrapped-BTC-Token zu bauen oder auf eine trustless Bridge zu warten, nutzt JuiceDollar sein **bestehendes Multi-Collateral-System** — dieselbe Architektur, die auf Citrea bereits funktioniert.
 
-**4.3.4 Entfernung von burnFrom**
+**4.4.1 Kernidee**
 
-`burnFrom()` ist **nicht** Teil des OP-20- oder OP-20S-Basisstandards. Es ist eine benutzerdefinierte Funktion, die im WBTC-Beispiel-Contract (`MyPeggedToken.ts`) hinzugefuegt wurde. Durch einfaches Weglassen dieser Funktion wird die Konfiszierung strukturell unmoeglich:
+Jede Position im JuiceDollar-Protokoll hat drei begrenzende Parameter:
 
-- `burn()` (geerbt von OP-20): Jeder User kann **nur seine eigenen** Tokens verbrennen
-- Kein Dritter — auch nicht der Custodian — kann Tokens einer anderen Adresse verbrennen
+- **`collateral`**: Welcher Token als Sicherheit akzeptiert wird
+- **`expiration`**: Wann die Position ablaeuft
+- **`limit`**: Maximaler JUSD-Betrag, der gemintet werden kann
 
-**4.3.5 Trustless Deposit via PSBT-Verifikation**
+Durch Setzen eines **konservativen Ablaufdatums und eines niedrigen Mint-Limits** fuer WBTC-Positionen wird das Custodian-Risiko explizit begrenzt — identisch zum StartUSD-Bootstrap-Pattern auf Citrea, wo ein temporaerer Token mit 6-Wochen-Horizon die initiale Liquiditaet bereitstellte.
 
-OP_NET-Contracts haben Zugriff auf `Blockchain.tx.outputs` — die Outputs der **aktuellen** Bitcoin-Transaktion. Dies ermoeglicht einen **vollstaendig trustless Deposit**:
+**4.4.2 Phasenmodell**
 
-1. User erstellt eine Bitcoin-Transaktion, die gleichzeitig BTC an eine bekannte Vault-Adresse sendet UND den JuiceBTC-Contract aufruft
-2. Der Contract iteriert `Blockchain.tx.outputs` und verifiziert, dass der BTC-Betrag an die korrekte Vault-Adresse gesendet wurde
-3. Erst nach erfolgreicher Verifikation wird jBTC geminted
+**Phase 1 — Bootstrap (heute, WBTC als Collateral):**
 
-```typescript
-// Pseudocode: Deposit-Verifikation im Contract
-const outputs = Blockchain.tx.outputs;
-for (let i = 0; i < outputs.length; i++) {
-    if (outputs[i].to == vaultAddress && outputs[i].value >= requiredAmount) {
-        this._mint(sender, convertToJBTC(outputs[i].value));
-    }
-}
-```
+| Parameter | Wert |
+|-----------|------|
+| Collateral | OP_NET WBTC (existierender Token) |
+| Expiration | 6 Monate |
+| Mint-Limit (gesamt) | z.B. 1.000.000 JUSD |
+| Min. Besicherungsquote | 150% |
+| Trust-Annahme | OP_NET WBTC-Custodian (bekannt, begrenzt) |
 
-Der Deposit ist **kryptographisch verifiziert** in derselben Transaktion. Keine Vertrauensannahme noetig.
+**Phase 2 — Trustless Collateral (wenn verfuegbar):**
 
-**4.3.6 Withdrawal-Fallback via Bitcoin Script Timelock**
+Sobald eine trustless BTC-Bridge auf OP_NET existiert (OP_LINK, BitVM2 oder ein Drittanbieter), wird das neue Token als **zusaetzliches Collateral** hinzugefuegt:
 
-Fuer Withdrawals (jBTC -> BTC) gibt es drei Pfade:
+| Parameter | Wert |
+|-----------|------|
+| Collateral | Trustless BTC Token (neuer Token) |
+| Expiration | 1 Jahr oder laenger |
+| Mint-Limit | Hoeher oder unbegrenzt |
+| Trust-Annahme | Keine (trustless) |
 
-1. **Normal:** Custodian kooperiert und sendet BTC sofort zurueck
-2. **Verzoegert:** User wartet auf Bitcoin-Script-Timelock (CSV, z.B. 144 Blocks) und nimmt BTC selbst zurueck
-3. **Eskalation:** Community kann den Custodian per Governance ersetzen
+**Phase 3 — Migration (organisch):**
 
-Der Contract verifiziert bei Deposits, dass der Output ein **2-of-2 Script mit CSV-Fallback** ist (`Blockchain.tx.outputs[i].scriptPublicKey`). Damit kann der User im Worst-Case nach 144 Blocks (ca. 24 Stunden) seine BTC selbst abholen — ohne Custodian-Kooperation.
+WBTC-Positionen laufen nach 6 Monaten natuerlich aus. Neue Positionen werden mit dem trustless Collateral geoeffnet. Das System migriert organisch — kein harter Wechsel, keine Governance-Entscheidung noetig.
 
-**4.3.7 Proof of Reserves**
+**4.4.3 Warum dieses Modell die Kernwerte wahrt**
 
-Die Vault-Adresse ist oeffentlich bekannt und on-chain gespeichert. Jeder kann jederzeit pruefen:
+| Aspekt | Bewertung |
+|--------|-----------|
+| **Protokoll trustless?** | Ja — die Smart Contracts (JUSD, MintingHub, Position, Challenge-System) sind vollstaendig trustless und immutable |
+| **Collateral trustless?** | Nein (WBTC ist PoA) — aber **explizit begrenzt** durch Expiration und Limit |
+| **Risiko quantifizierbar?** | Ja — maximaler Schaden = Mint-Limit (z.B. 1M JUSD) |
+| **Transparent?** | Ja — Expiration und Limit sind on-chain sichtbar und unveraenderbar |
+| **Vergleichbar?** | Identisch zum StartUSD-Pattern auf Citrea — temporaerer Bootstrap mit bekanntem Risikoprofil |
 
-- `totalSupply()` des jBTC-Contracts (on-chain)
-- BTC-Balance der Vault-Adresse (Bitcoin-Blockchain)
-- Differenz = unter-/ueberbesichert
+**4.4.4 Vorteile gegenueber eigenem JuiceBTC-Token**
 
-**4.3.8 Vergleich mit WBTC auf Ethereum**
-
-| Eigenschaft | WBTC Ethereum (BitGo) | JuiceBTC (OP_NET) |
-|-------------|----------------------|-------------------|
-| Konfiszierung moeglich | Ja (burnFrom + Blacklist) | **Nein** (strukturell entfernt) |
-| Inflationsschutz | Keiner | **Rate-Limit + Timelock** |
-| Transparenz bei Mint | Event sichtbar | **Event + 24h Timelock** fuer Community-Reaktion |
-| Upgradeability | Proxy-Contract (aenderbar) | **Immutable** |
-| Deposit-Verifikation | Off-chain (Trust in BitGo) | **On-chain** (PSBT-Verifikation) |
-| Withdrawal-Fallback | Keiner | **Bitcoin Script Timelock** |
-
-**Fazit:** JuiceBTC ist objektiv **sicherer als WBTC auf Ethereum**. Die verbleibende Trust-Annahme (Custodian muss ehrlich minten) ist durch Multisig, Timelock und Rate-Limit auf ein Minimum reduziert und durch den Proof-of-Reserves-Mechanismus verifizierbar.
-
-**4.3.9 Kernwerte-Erhalt**
-
-| Kernwert | Bewertung |
-|----------|-----------|
-| **Censorship-resistant** | Erfuellt — kein burnFrom, kein Blacklist, kein Freeze |
-| **Self-custody** | Erfuellt — User kontrolliert jBTC und Position |
-| **Trustless** | Weitgehend — Deposit trustless, Mint trust-minimiert (Multisig + Timelock) |
-| **Code is Law** | Erfuellt — Contract immutable |
+| | Eigener jBTC Token | Multi-Collateral mit WBTC |
+|---|---|---|
+| **Entwicklungsaufwand** | Hoch (Multisig, Timelock, Wrapping) | **Keiner** (WBTC existiert bereits) |
+| **Custodian-Verantwortung** | Bei JuiceDollar | **Bei OP_NET** (nicht unsere Verantwortung) |
+| **Complexity** | 4 Contracts | **3 Contracts** |
+| **Risiko-Begrenzung** | Multisig + Rate-Limit | **Expiration + Mint-Limit** (einfacher, transparenter) |
+| **Migration zu Trustless** | Erfordert Token-Swap | **Automatisch** (neue Positionen, alte laufen ab) |
+| **Kernwerte** | Trust-minimiert | **Protokoll trustless, Collateral zeitlich begrenzt** |
 
 ---
 
@@ -816,7 +802,7 @@ Nach der detaillierten Analyse verbleiben folgende Einschraenkungen, die nicht d
 | Einschraenkung | Schwere | Technische Begruendung | Mitigation |
 |---------------|---------|----------------------|------------|
 | **Kein harter Peg-Floor ohne Stablecoins** | Hoch | Auf Citrea: USDC/USDT-Bridges schaffen harten Floor/Ceiling via Arbitrage. Auf OP_NET: keine Stablecoins vorhanden → Peg stuetzt sich auf Arbitrage via MotoSwap und Challenge-Mechanismus. | StartUSD-Bootstrap + MotoSwap-Liquiditaet. OP-20S Stablecoin-Standard fuer Q2 2026 angekuendigt — wuerde das Problem vollstaendig loesen. |
-| **Collateral-Minting erfordert Custodian-Vertrauen** | Mittel | Auch mit Multisig + Timelock + Rate-Limit bleibt die Annahme, dass der Custodian ehrlich mintet. On-Chain-Proof-of-Reserve beweist Backing, aber erst nach dem Mint. | Proof-of-Reserves (oeffentliche Vault-Adresse), 24h-Timelock fuer Community-Reaktion, Rate-Limit begrenzt Schaden. Objektiv besser als WBTC auf Ethereum. |
+| **WBTC-Collateral ist PoA-basiert** | Mittel | OP_NETs WBTC hat einen Single-Key Custodian. JuiceDollar nutzt diesen Token als temporaeres Collateral. | Risiko explizit begrenzt durch Position-Expiration (6 Monate) und Mint-Limit (z.B. 1M JUSD). Migration zu trustless Collateral, sobald verfuegbar. |
 | **Einziges Wallet (OP_WALLET)** | Mittel | Nur eine Chrome-Extension verfuegbar. Kein Hardware-Wallet, kein Mobile. | WalletConnect-SDK in Arbeit. Hardware-Wallet-Support abhaengig vom OP_NET-Oekosystem. |
 | **Kein etabliertes Audit-Oekosystem** | Mittel | Runtime von Verichains auditiert, aber keine spezialisierten Audit-Firmen fuer AssemblyScript/WASM Application-Contracts. | Open-Source, internes Code Review, Community-Audit. Audit-Firmen koennen WASM-Bytecode analysieren. |
 | **Fruehes Oekosystem (1 Monat Mainnet)** | Mittel | OP_NET Mainnet seit 19.03.2026. Unbekannte Langzeit-Stabilitaet. | Testnet-Phase vor Mainnet. MVP begrenzt das Investment. First-Mover-Vorteil bei erfolgreichem Launch. |
@@ -842,7 +828,7 @@ Nach der detaillierten Analyse verbleiben folgende Einschraenkungen, die nicht d
 | Risiko | Schwere | Wahrscheinlichkeit | Mitigation |
 |--------|---------|---------------------|------------|
 | OP_NET Netzwerk-Instabilitaet | Kritisch | Mittel | Testnet zuerst, Mainnet erst nach Validation |
-| JuiceBTC-Custodian-Ausfall | Hoch | Niedrig | Eigener jBTC-Contract mit 3-of-5 Multisig, Timelock, Rate-Limit, Proof-of-Reserves |
+| WBTC-Custodian-Ausfall | Hoch | Niedrig | Risiko begrenzt durch Position-Expiration (6 Mon.) + Mint-Limit. Nicht JuiceDollars Verantwortung. |
 | OP_NET-Projekt scheitert | Kritisch | Mittel | MVP begrenzt Investment, Code-Learnings transferierbar |
 | Geringe Nutzerbasis | Hoch | Hoch | First-Mover-Effekt, MotoSwap-Integration |
 | Fehlende Audit-Firmen | Mittel | Hoch | Open-Source, Community Review |
@@ -852,7 +838,7 @@ Nach der detaillierten Analyse verbleiben folgende Einschraenkungen, die nicht d
 | Risiko | Schwere | Wahrscheinlichkeit | Mitigation |
 |--------|---------|---------------------|------------|
 | Reputationsrisiko bei Exploit | Hoch | Niedrig | Konservatives Limit-Setting, schrittweises Wachstum |
-| Widerspruch zum "trustless" Narrativ | Niedrig | Niedrig | JuiceBTC ist trust-minimiert (Multisig + Timelock + trustless Deposit), besser als WBTC auf Ethereum |
+| Widerspruch zum "trustless" Narrativ | Niedrig | Niedrig | Protokoll ist trustless. WBTC-Collateral ist explizit temporaer und begrenzt — transparent kommuniziert. |
 | Kannibalisierung des Citrea-Deployments | Niedrig | Niedrig | Verschiedene Zielgruppen |
 
 ---
@@ -889,14 +875,15 @@ Nach der detaillierten Analyse verbleiben folgende Einschraenkungen, die nicht d
 
 Basierend auf der Analyse wird JUSD als **Minimal Viable Stablecoin** auf OP_NET implementiert. Die Kernmechanismen des Protokolls werden vollstaendig umgesetzt, nicht vereinfacht.
 
-### MVP-Scope (4 Contracts)
+### MVP-Scope (3 Contracts)
 
 | Contract | Funktion |
 |----------|---------|
-| **JuiceBTC (jBTC)** | Eigener Wrapped-BTC-Token mit 3-of-5 Multisig, Timelock, Rate-Limit, kein burnFrom |
 | **JUSD** | Stablecoin-Token mit Minter-Registry, Reserve-Tracking, festem Zinssatz |
 | **MintingHub** | Position-Factory (`deployContractFromExisting`), Challenge-Orchestrierung, Forced Sales |
 | **Position** | Collateral-Position (Template): Mint, Repay, Interest, Liquidation, Price Adjustment |
+
+**Collateral:** Bestehendes OP_NET WBTC mit Ablaufdatum (6 Monate) und Mint-Limit. Kein eigener Wrapped-BTC-Token noetig.
 
 ### Parameter-Entscheidungen
 
@@ -920,7 +907,7 @@ Basierend auf der Analyse wird JUSD als **Minimal Viable Stablecoin** auf OP_NET
 | Self-custody | Erfuellt | User kontrolliert jBTC, JUSD und Position |
 | Code is Law | Erfuellt | Alle Contracts immutable (kein onUpdate) |
 | Permissionless | Erfuellt | Jeder kann Positionen oeffnen, challengen, bidden |
-| Trustless | Weitgehend | Deposit trustless (PSBT), Mint trust-minimiert (Multisig + Timelock) |
+| Trustless | Protokoll trustless | Collateral-Trust explizit begrenzt (Expiration + Limit), migriert organisch zu trustless BTC |
 
 ---
 
@@ -960,7 +947,7 @@ Die Machbarkeitsstudie ist abgeschlossen. Die Implementierung wird in einem sepa
 | Token-Standard | ERC-20 | OP-20 |
 | Max Gas/TX | Chain-abhaengig | 150 Mrd. |
 | Wrapped BTC | cBTC (18 Decimals) | WBTC (8 Decimals) |
-| BTC-Wrapping | Dezentrale Bridge | JuiceBTC: Multisig + Timelock + Trustless Deposit |
+| BTC-Wrapping | Dezentrale Bridge | WBTC (PoA) als temporaeres Collateral mit Expiration + Limit |
 | Wallet-Support | MetaMask, WalletConnect | OP_WALLET |
 | Block Explorer | CitreaScan | Nicht vorhanden |
 | Quantum-Resistenz | Nein | Ja (ML-DSA) |
