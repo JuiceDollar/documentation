@@ -4,6 +4,10 @@
 
 The JuiceDollar system includes a built-in reward mechanism for frontend operators and referrers. Anyone can register a frontend code and earn a share of the activity generated through their interface.
 
+::: warning V2 ONLY
+Frontend rewards are emitted exclusively by the **V2 module** (`MintingHubGateway`, `SavingsGateway`, `FrontendGateway`). The V3 module bypasses the Gateway layer and does **not** distribute frontend rewards. To earn rewards, route your users through V2 contracts.
+:::
+
 ## How It Works
 
 The Frontend Gateway tracks user activity and attributes rewards to registered frontend codes:

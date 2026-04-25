@@ -20,6 +20,23 @@ The contracts are organized into five main categories:
 
 ---
 
+## Protocol Modules: V2 and V3
+
+JuiceDollar contracts are immutable and cannot be replaced. Instead of upgrading via proxies, the protocol evolves by adding **new modules** through the standard `suggestMinter()` governance flow. As of March 2026 the protocol runs **two coexisting MintingHub and Savings modules** on Citrea Mainnet:
+
+| Module | Status | Frontend Rewards | Notes |
+|--------|--------|------------------|-------|
+| **V2** | Active, permanent | Yes (via Gateways) | Original launch modules; positions and savings opened here remain fully usable. Cannot be deactivated. |
+| **V3** | Active, permanent | No | Additional module set approved by JUICE governance on **2026-03-19**. Adds native cBTC support, a price reference system, and an updated savings/vault design. Routes do not pass through `FrontendGateway`. |
+
+Both module sets share the same `JuiceDollar` (JUSD) token, the same `Equity` (JUICE) reserve pool, and the same Bridge contracts. New positions and savings deposits can be opened in either module; existing V2 positions are not migrated and continue to live under V2.
+
+::: tip
+V3 is **not a replacement** for V2. It is an additional, parallel set of minter contracts that JUICE holders approved through the standard 14-day application period. V2 remains the only home for positions and savings that were opened before V3 went live.
+:::
+
+---
+
 ## Core Contracts
 
 ### JuiceDollar (JUSD)
@@ -143,10 +160,14 @@ The central hub for creating, cloning, and challenging collateralized JuiceDolla
 | **Min Challenge Period** | 1 day |
 | **Min Position Init Period** | 14 days |
 
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0x1a20B160bf546774246C7920939E6e7Ac0f88b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) |
-| **Testnet** | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
+The protocol exposes two MintingHub modules. V2 is wrapped by `MintingHubGateway` for frontend-code tracking; V3 routes directly through `MintingHub` and adds native cBTC handling plus a price reference system.
+
+| Module | Network | Address |
+|--------|---------|---------|
+| **V2** (`MintingHubGateway`) | Mainnet | [`0x1a20B160bf546774246C7920939E6e7Ac0f88b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) |
+| **V2** (`MintingHubGateway`) | Testnet | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
+| **V3** (`MintingHub`) | Mainnet | [`0x0f0164a5D9556C64bA879622C71732f3525C183A`](https://citreascan.com/address/0x0f0164a5D9556C64bA879622C71732f3525C183A) |
+| **V3** (`MintingHub`) | Testnet | _not deployed_ |
 
 ---
 
@@ -198,10 +219,14 @@ Factory contract for deploying new Position contracts using the ERC-1167 minimal
 |----------|-------|
 | **Pattern** | ERC-1167 Minimal Proxy |
 
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0x107eDf5f030d724bD0C73f88A300bEA09AE581e2`](https://citreascan.com/address/0x107eDf5f030d724bD0C73f88A300bEA09AE581e2) |
-| **Testnet** | [`0x2990c3219ED2763685D4420f5513feEa8991a7ee`](https://testnet.citreascan.com/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) |
+Each MintingHub module owns its own PositionFactory.
+
+| Module | Network | Address |
+|--------|---------|---------|
+| **V2** | Mainnet | [`0x107eDf5f030d724bD0C73f88A300bEA09AE581e2`](https://citreascan.com/address/0x107eDf5f030d724bD0C73f88A300bEA09AE581e2) |
+| **V2** | Testnet | [`0x2990c3219ED2763685D4420f5513feEa8991a7ee`](https://testnet.citreascan.com/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) |
+| **V3** | Mainnet | [`0x37E45AceF1E1fEF03697440682329FFc84e9310E`](https://citreascan.com/address/0x37E45AceF1E1fEF03697440682329FFc84e9310E) |
+| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -220,10 +245,14 @@ Helper contract for rolling over debt from one position to another using flash l
 - `rollFully()` - Roll entire position automatically
 - `rollNative()` - Roll native coin positions (cBTC)
 
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac`](https://citreascan.com/address/0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac) |
-| **Testnet** | [`0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC`](https://testnet.citreascan.com/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) |
+A PositionRoller can only roll between positions inside the same MintingHub module.
+
+| Module | Network | Address |
+|--------|---------|---------|
+| **V2** | Mainnet | [`0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac`](https://citreascan.com/address/0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac) |
+| **V2** | Testnet | [`0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC`](https://testnet.citreascan.com/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) |
+| **V3** | Mainnet | [`0x7E2Bc47C49E73340bB7d00bB1E972125cF76A54d`](https://citreascan.com/address/0x7E2Bc47C49E73340bB7d00bB1E972125cF76A54d) |
+| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -244,6 +273,15 @@ Base savings module that enables interest-bearing JUSD deposits based on the Lea
 - `withdraw()` - Withdraw JUSD and accrued interest
 - `refreshBalance()` - Collect accrued interest into balance
 - `adjust()` - Adjust savings to target amount
+
+The protocol exposes two Savings modules. V2 is wrapped by `SavingsGateway` for frontend-code tracking; V3 routes directly through `Savings` and skips the FrontendGateway layer.
+
+| Module | Network | Address |
+|--------|---------|---------|
+| **V2** (`SavingsGateway`) | Mainnet | [`0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) |
+| **V2** (`SavingsGateway`) | Testnet | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) |
+| **V3** (`Savings`) | Mainnet | [`0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94`](https://citreascan.com/address/0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94) |
+| **V3** (`Savings`) | Testnet | _not deployed_ |
 
 ---
 
@@ -268,10 +306,14 @@ ERC-4626 compatible vault adapter for the Savings module.
 | **Symbol** | svJUSD |
 | **Standard** | ERC-4626 |
 
-| Network | Address |
-|---------|---------|
-| **Mainnet** | [`0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) |
-| **Testnet** | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) |
+Each Savings module ships with its own SavingsVaultJUSD adapter.
+
+| Module | Network | Address |
+|--------|---------|---------|
+| **V2** | Mainnet | [`0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) |
+| **V2** | Testnet | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) |
+| **V3** | Mainnet | [`0xD6d874968882d01fff6712e639f3F7e19bDA6523`](https://citreascan.com/address/0xD6d874968882d01fff6712e639f3F7e19bDA6523) |
+| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -328,6 +370,10 @@ StartUSD (SUSD) was a simple ERC-20 bootstrap token used to initialize the Juice
 ---
 
 ## Gateway Contracts
+
+::: warning V2 ONLY
+The Gateway layer only exists in V2. V3 modules (`MintingHub`, `Savings`) bypass the Gateway pattern entirely and do not emit frontend rewards. Frontend operators only earn rewards on V2 activity.
+:::
 
 ### FrontendGateway
 
@@ -406,21 +452,40 @@ Extended Savings module with frontend reward integration.
 
 ### Mainnet (Chain ID: 4114)
 
+#### Shared
+
 | Contract | Address | Purpose |
 |----------|---------|---------|
 | JuiceDollar | [`0x0987...35C`](https://citreascan.com/address/0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C) | Main stablecoin token |
 | Equity | [`0x2A36...ae4`](https://citreascan.com/address/0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4) | Reserve pool shares (JUICE) |
-| MintingHubGateway | [`0x1a20...b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) | Position management hub |
-| PositionFactory | [`0x107e...1e2`](https://citreascan.com/address/0x107eDf5f030d724bD0C73f88A300bEA09AE581e2) | Position deployment factory |
-| PositionRoller | [`0xC1b9...9Ac`](https://citreascan.com/address/0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac) | Position rollover helper |
-| SavingsGateway | [`0x22FE...60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) | Savings with frontend rewards |
-| SavingsVaultJUSD | [`0x1b70...97d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) | ERC-4626 savings vault |
-| FrontendGateway | [`0x3090...B92`](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) | Frontend reward system |
 | USDC Bridge | [`0x920D...20F`](https://citreascan.com/address/0x920DB0aDf6fEe2D69401e9f68D60319177dCa20F) | USDC stablecoin bridge |
 | USDT Bridge | [`0x5CC0...614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) | USDT stablecoin bridge |
 | CTUSD Bridge | [`0x8D11...0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) | CTUSD stablecoin bridge |
 
+#### V2 Module (active, with frontend rewards)
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| MintingHubGateway | [`0x1a20...b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) | Position management hub (V2) |
+| PositionFactory | [`0x107e...1e2`](https://citreascan.com/address/0x107eDf5f030d724bD0C73f88A300bEA09AE581e2) | Position deployment factory (V2) |
+| PositionRoller | [`0xC1b9...9Ac`](https://citreascan.com/address/0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac) | Position rollover helper (V2) |
+| SavingsGateway | [`0x22FE...60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) | Savings with frontend rewards |
+| SavingsVaultJUSD | [`0x1b70...97d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) | ERC-4626 savings vault (V2) |
+| FrontendGateway | [`0x3090...B92`](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) | Frontend reward system (V2 only) |
+
+#### V3 Module (active, governance-approved 2026-03-19, no frontend rewards)
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| MintingHub | [`0x0f01...183A`](https://citreascan.com/address/0x0f0164a5D9556C64bA879622C71732f3525C183A) | Position management hub (V3) |
+| PositionFactory | [`0x37E4...310E`](https://citreascan.com/address/0x37E45AceF1E1fEF03697440682329FFc84e9310E) | Position deployment factory (V3) |
+| PositionRoller | [`0x7E2B...A54d`](https://citreascan.com/address/0x7E2Bc47C49E73340bB7d00bB1E972125cF76A54d) | Position rollover helper (V3) |
+| Savings | [`0x6347...aA94`](https://citreascan.com/address/0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94) | Savings module (V3) |
+| SavingsVaultJUSD | [`0xD6d8...6523`](https://citreascan.com/address/0xD6d874968882d01fff6712e639f3F7e19bDA6523) | ERC-4626 savings vault (V3) |
+
 ### Testnet (Chain ID: 5115)
+
+Only the V2 module is deployed on Testnet. V3 is currently Mainnet-only.
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
