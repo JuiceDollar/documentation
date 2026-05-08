@@ -2,15 +2,17 @@
   RewriteEngine On
   RewriteBase /
 
-  # Redirect /path/ to /path.html if the .html file exists
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_URI} ^(.+)/$
-  RewriteCond %{DOCUMENT_ROOT}%1.html -f
-  RewriteRule ^(.+)/$ /$1.html [L,R=301]
+  # VuePress generates /path.html alongside /path/ directories for pages with
+  # children (e.g. positions.html + positions/). Without these rules, requesting
+  # /path or /path/ returns 403 because the directory lacks an index.html.
 
-  # Serve /path as /path.html if the .html file exists (without redirect)
+  # /path -> internally serve /path.html (no visible redirect)
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+)$ $1.html [L]
+
+  # /path/ -> redirect to /path.html (trailing slash case)
+  RewriteCond %{REQUEST_URI} ^/(.+)/$
+  RewriteCond %{DOCUMENT_ROOT}/%1.html -f
+  RewriteRule ^ /%1.html [L,R=301]
 </IfModule>
