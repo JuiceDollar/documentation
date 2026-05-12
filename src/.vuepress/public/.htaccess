@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # VuePress generates /path.html alongside /path/ directories for pages with
+  # children (e.g. positions.html + positions/). Without this rule, requesting
+  # /path or /path/ returns 403 because the directory lacks an index.html.
+  # Internally serves the matching .html in both cases, preserving the URL.
+
+  RewriteCond %{REQUEST_URI} ^/(.+?)/?$
+  RewriteCond %{DOCUMENT_ROOT}/%1.html -f
+  RewriteRule . /%1.html [L]
+</IfModule>
