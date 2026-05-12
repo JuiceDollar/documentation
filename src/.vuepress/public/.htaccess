@@ -3,16 +3,11 @@
   RewriteBase /
 
   # VuePress generates /path.html alongside /path/ directories for pages with
-  # children (e.g. positions.html + positions/). Without these rules, requesting
+  # children (e.g. positions.html + positions/). Without this rule, requesting
   # /path or /path/ returns 403 because the directory lacks an index.html.
+  # Internally serves the matching .html in both cases, preserving the URL.
 
-  # /path -> internally serve /path.html (no visible redirect)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.+)$ $1.html [L]
-
-  # /path/ -> redirect to /path.html (trailing slash case)
-  RewriteCond %{REQUEST_URI} ^/(.+)/$
+  RewriteCond %{REQUEST_URI} ^/(.+?)/?$
   RewriteCond %{DOCUMENT_ROOT}/%1.html -f
-  RewriteRule ^ /%1.html [L,R=301]
+  RewriteRule . /%1.html [L]
 </IfModule>
