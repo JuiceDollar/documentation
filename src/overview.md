@@ -29,10 +29,10 @@ JuiceDollar is a direct technological manifestation of Timothy C. May's vision o
 
 The JuiceDollar system comes with two ERC-20 tokens, a stablecoin called JuiceDollar (JUSD) and a governance token called JuiceDollar Pool Shares (JUICE).
 
-| Token | Mainnet | Testnet |
-|-------|---------|---------|
-| **JUSD** | [`0x0987...35C`](https://citreascan.com/address/0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C) | [`0x6a85...E39`](https://testnet.citreascan.com/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) |
-| **JUICE** | [`0x2A36...ae4`](https://citreascan.com/address/0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4) | [`0x7fa1...D5E`](https://testnet.citreascan.com/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) |
+| Token | Mainnet |
+|-------|---------|
+| **JUSD** | [`0x0987...35C`](https://citreascan.com/address/0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C) |
+| **JUICE** | [`0x2A36...ae4`](https://citreascan.com/address/0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4) |
 
 Unlike other collateralized stablecoins, JuiceDollar does not depend on external oracles, making it less susceptible to certain attacks and also more versatile with regards to the used collateral. The disadvantage of that approach is its speed, performing liquidations over the course of days whereas oracle-based systems might react within minutes.
 

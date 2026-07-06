@@ -196,7 +196,6 @@ The StartUSD bridge has since expired. SUSD is no longer part of the system and 
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
-| **Testnet** | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 
 | Property | Value |
 |----------|-------|
@@ -283,11 +282,5 @@ event EmergencyStopped(address indexed caller, string message)
 | USDT | USDT | [`0x5CC0...614`](https://citreascan.com/address/0x5CC0e668F8BA61E111B6168E19d17d3C65040614) | Active |
 | CTUSD | CTUSD | [`0x8D11...0bd`](https://citreascan.com/address/0x8D11020286aF9ecf7E5D7bD79699c391b224a0bd) | Active |
 | StartUSD | SUSD | [`0x51ff...4dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) | Expired |
-
-### Testnet (Chain ID: 5115)
-
-| Bridge | Source | Address | Status |
-|--------|--------|---------|--------|
-| StartUSD | SUSD | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Expired |
 
 *Additional bridges may be added through governance.*

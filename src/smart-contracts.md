@@ -66,7 +66,6 @@ The main stablecoin token contract - an ERC-20 token designed to track the value
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C`](https://citreascan.com/address/0x0987D3720D38847ac6dBB9D025B9dE892a3CA35C) |
-| **Testnet** | [`0x6a850a548fdd050e8961223ec8FfCDfacEa57E39`](https://testnet.citreascan.com/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) |
 
 ---
 
@@ -103,7 +102,6 @@ The equity token representing shares in the JuiceDollar reserve pool. Holding JU
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4`](https://citreascan.com/address/0x2A36f2b204B46Fd82653cd06d00c7fF757C99ae4) |
-| **Testnet** | [`0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E`](https://testnet.citreascan.com/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) |
 
 ---
 
@@ -165,9 +163,7 @@ The protocol exposes two MintingHub modules. V2 is wrapped by `MintingHubGateway
 | Module | Network | Address |
 |--------|---------|---------|
 | **V2** (`MintingHubGateway`) | Mainnet | [`0x1a20B160bf546774246C7920939E6e7Ac0f88b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) |
-| **V2** (`MintingHubGateway`) | Testnet | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
 | **V3** (`MintingHub`) | Mainnet | [`0x0f0164a5D9556C64bA879622C71732f3525C183A`](https://citreascan.com/address/0x0f0164a5D9556C64bA879622C71732f3525C183A) |
-| **V3** (`MintingHub`) | Testnet | _not deployed_ |
 
 ---
 
@@ -224,9 +220,7 @@ Each MintingHub module owns its own PositionFactory.
 | Module | Network | Address |
 |--------|---------|---------|
 | **V2** | Mainnet | [`0x107eDf5f030d724bD0C73f88A300bEA09AE581e2`](https://citreascan.com/address/0x107eDf5f030d724bD0C73f88A300bEA09AE581e2) |
-| **V2** | Testnet | [`0x2990c3219ED2763685D4420f5513feEa8991a7ee`](https://testnet.citreascan.com/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) |
 | **V3** | Mainnet | [`0x37E45AceF1E1fEF03697440682329FFc84e9310E`](https://citreascan.com/address/0x37E45AceF1E1fEF03697440682329FFc84e9310E) |
-| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -250,9 +244,7 @@ A PositionRoller can only roll between positions inside the same MintingHub modu
 | Module | Network | Address |
 |--------|---------|---------|
 | **V2** | Mainnet | [`0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac`](https://citreascan.com/address/0xC1b97398c06B9C6a49Fd9dCFAC8907700301e9Ac) |
-| **V2** | Testnet | [`0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC`](https://testnet.citreascan.com/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) |
 | **V3** | Mainnet | [`0x7E2Bc47C49E73340bB7d00bB1E972125cF76A54d`](https://citreascan.com/address/0x7E2Bc47C49E73340bB7d00bB1E972125cF76A54d) |
-| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -279,9 +271,7 @@ The protocol exposes two Savings modules. V2 is wrapped by `SavingsGateway` for 
 | Module | Network | Address |
 |--------|---------|---------|
 | **V2** (`SavingsGateway`) | Mainnet | [`0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) |
-| **V2** (`SavingsGateway`) | Testnet | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) |
 | **V3** (`Savings`) | Mainnet | [`0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94`](https://citreascan.com/address/0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94) |
-| **V3** (`Savings`) | Testnet | _not deployed_ |
 
 ---
 
@@ -311,9 +301,7 @@ Each Savings module ships with its own SavingsVaultJUSD adapter.
 | Module | Network | Address |
 |--------|---------|---------|
 | **V2** | Mainnet | [`0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d`](https://citreascan.com/address/0x1b70ae756b1089cc5948e4f8a2AD498DF30E897d) |
-| **V2** | Testnet | [`0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) |
 | **V3** | Mainnet | [`0xD6d874968882d01fff6712e639f3F7e19bDA6523`](https://citreascan.com/address/0xD6d874968882d01fff6712e639f3F7e19bDA6523) |
-| **V3** | Testnet | _not deployed_ |
 
 ---
 
@@ -356,8 +344,6 @@ StartUSD (SUSD) was a simple ERC-20 bootstrap token used to initialize the Juice
 |---------|----------|---------|
 | **Mainnet** | Token | [`0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80`](https://citreascan.com/address/0xD41ab73aF9c7324b9c7c6e63dE1aeC666d98bc80) |
 | **Mainnet** | Bridge (expired) | [`0x51ff8141D731676Fb21aE1E5D5A88c04511994dD`](https://citreascan.com/address/0x51ff8141D731676Fb21aE1E5D5A88c04511994dD) |
-| **Testnet** | Token | [`0x8398Da4c32eaE51B9840DA230095BB29F4179590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) |
-| **Testnet** | Bridge (expired) | [`0x9ba2264bE7695044f59B9ca863E69aC38B3c913d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) |
 
 **Mainnet Stablecoins:**
 
@@ -402,7 +388,6 @@ Manages frontend referral codes and distributes rewards to frontend operators.
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x3090a89A1fF5DC99117BE655599e5491A0BaBB92`](https://citreascan.com/address/0x3090a89A1fF5DC99117BE655599e5491A0BaBB92) |
-| **Testnet** | [`0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0`](https://testnet.citreascan.com/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) |
 
 ---
 
@@ -423,7 +408,6 @@ Extended MintingHub with frontend reward integration.
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x1a20B160bf546774246C7920939E6e7Ac0f88b8e`](https://citreascan.com/address/0x1a20B160bf546774246C7920939E6e7Ac0f88b8e) |
-| **Testnet** | [`0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) |
 
 ---
 
@@ -444,7 +428,6 @@ Extended Savings module with frontend reward integration.
 | Network | Address |
 |---------|---------|
 | **Mainnet** | [`0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b`](https://citreascan.com/address/0x22FE239892eBC8805DA8f05eD3bc6aF75332b60b) |
-| **Testnet** | [`0x54430781b33581CE2b0DBD837CA66113BeEEFD8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) |
 
 ---
 
@@ -483,23 +466,6 @@ Extended Savings module with frontend reward integration.
 | Savings | [`0x6347...aA94`](https://citreascan.com/address/0x6347a7Ec9Cf3D04CD853425a9857513C600EaA94) | Savings module (V3) |
 | SavingsVaultJUSD | [`0xD6d8...6523`](https://citreascan.com/address/0xD6d874968882d01fff6712e639f3F7e19bDA6523) | ERC-4626 savings vault (V3) |
 
-### Testnet (Chain ID: 5115)
-
-Only the V2 module is deployed on Testnet. V3 is currently Mainnet-only.
-
-| Contract | Address | Purpose |
-|----------|---------|---------|
-| JuiceDollar | [`0x6a85...E39`](https://testnet.citreascan.com/address/0x6a850a548fdd050e8961223ec8FfCDfacEa57E39) | Main stablecoin token |
-| Equity | [`0x7fa1...D5E`](https://testnet.citreascan.com/address/0x7fa131991c8A7d8C21b11391C977Fc7c4c8e0D5E) | Reserve pool shares (JUICE) |
-| MintingHubGateway | [`0x5fC6...0F8`](https://testnet.citreascan.com/address/0x5fC684074fBaAE37Eb68d3e48D85f485CE5060F8) | Position management hub |
-| PositionFactory | [`0x2990...7ee`](https://testnet.citreascan.com/address/0x2990c3219ED2763685D4420f5513feEa8991a7ee) | Position deployment factory |
-| PositionRoller | [`0x8A50...caC`](https://testnet.citreascan.com/address/0x8A50329559Ae3F2BaA1fC8BC59Fcd52958c61caC) | Position rollover helper |
-| SavingsGateway | [`0x5443...D8e`](https://testnet.citreascan.com/address/0x54430781b33581CE2b0DBD837CA66113BeEEFD8e) | Savings with frontend rewards |
-| SavingsVaultJUSD | [`0x802a...c7B`](https://testnet.citreascan.com/address/0x802a29bD29f02c8C477Af5362f9ba88FAe39Cc7B) | ERC-4626 savings vault |
-| FrontendGateway | [`0xd824...1D0`](https://testnet.citreascan.com/address/0xd824b7d36594Fc3088B1D91a79F34931AA2a15D0) | Frontend reward system |
-| StartUSD Bridge (expired) | [`0x9ba2...3d`](https://testnet.citreascan.com/address/0x9ba2264bE7695044f59B9ca863E69aC38B3c913d) | Bootstrap stablecoin bridge (expired) |
-| StartUSD | [`0x8398...590`](https://testnet.citreascan.com/address/0x8398Da4c32eaE51B9840DA230095BB29F4179590) | Bootstrap token (historical) |
-
 ---
 
 ## Security Properties
@@ -527,7 +493,6 @@ All smart contract source code is available on GitHub:
 | Network | Chain ID | Explorer |
 |---------|----------|----------|
 | **Mainnet** | 4114 | [citreascan.com](https://citreascan.com) |
-| **Testnet** | 5115 | [testnet.citreascan.com](https://testnet.citreascan.com) |
 
 ---
 
